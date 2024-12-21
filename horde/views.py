@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Book, Author
 # Create your views here.
 
-def test(request):
-    return HttpResponse("This is a test")
+class BookList(generic.ListView):
+    model = Book

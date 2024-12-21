@@ -13,6 +13,7 @@ class Author(models.Model):
     nationality = models.CharField(max_length=100)
     genre = models.CharField(max_length=50)
     favourite_book = models.CharField(max_length=200)
+    bio = models.TextField()
 
 class Book(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -24,5 +25,6 @@ class Book(models.Model):
     rating = models.IntegerField(choices=STAR, default=0)
     status = models.IntegerField(choices=STATUS, default=0)
     review_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="horde_books")
+    
 
 

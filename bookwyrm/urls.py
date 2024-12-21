@@ -16,9 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from horde import views as horde_views
 
 urlpatterns = [
-    path('test/', horde_views.test, name='test'),
+    path("", include("horde.urls"), name="horde-urls"),
     path('admin/', admin.site.urls),
 ]
