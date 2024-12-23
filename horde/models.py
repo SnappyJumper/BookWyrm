@@ -26,5 +26,6 @@ class Book(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     review_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="horde_books")
     
+    
 
 
