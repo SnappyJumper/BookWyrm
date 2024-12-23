@@ -15,6 +15,12 @@ class Author(models.Model):
     favourite_book = models.CharField(max_length=200)
     bio = models.TextField()
 
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return f"{self.name}"
+
 class Book(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -25,7 +31,13 @@ class Book(models.Model):
     rating = models.IntegerField(choices=STAR, default=0)
     status = models.IntegerField(choices=STATUS, default=0)
     review_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="horde_books")
-    
+
+
+    class Meta:
+        ordering = ["title"]
+
+    def __str__(self):
+        return f"Title: {self.title}"
     
 
 
