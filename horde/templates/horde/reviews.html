@@ -13,18 +13,20 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
+                            <a href="#" class="post-link">
+                                <h2 class="card-title">{{ book.title }}</h2>
+                            </a>
                             <div class="image-container">
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author">Author: {{ book.author }}</p>
+                                </div>
+                                <div class="image-flash">
+                                    <p class="author">Reviewed By: {{ book.review_author }}</p>
+                                </div>
+                                <div class="image-flash">
+                                    <p class="author">Rating out of 5: {{ book.rating }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
                         </div>
                     </div>
                 </div>

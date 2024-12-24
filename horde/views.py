@@ -5,8 +5,10 @@ from .models import Book, Author
 
 class BookList(generic.ListView):
     queryset = Book.objects.all()
-    template_name = "book_list.html"
+    template_name = "horde/reviews.html"
+    paginate_by = 6
 
 class AuthorList(generic.ListView):
     queryset = Author.objects.all()
-    template_name = "author_list.html"
+    template_name = "horde/authors.html"
+    paginate_by = 6 
