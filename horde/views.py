@@ -12,3 +12,8 @@ class AuthorList(generic.ListView):
     queryset = Author.objects.all()
     template_name = "horde/authors.html"
     paginate_by = 6 
+
+class HomeBookList(generic.ListView):
+    queryset = Book.objects.all() 
+    template_name = "horde/index.html"
+    paginate_by = 6  
