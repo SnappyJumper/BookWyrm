@@ -8,7 +8,7 @@ STATUS = ((0, "Save as Draft"),(1, "Post"))
 
 class Author(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug_author = models.SlugField(max_length=100, unique=True)
     date_of_birth = models.DateField()
     nationality = models.CharField(max_length=100)
     genre = models.CharField(max_length=50)
@@ -31,6 +31,7 @@ class Book(models.Model):
     rating = models.IntegerField(choices=STAR, default=0)
     status = models.IntegerField(choices=STATUS, default=0)
     review_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="horde_books")
+    created_on = models.DateTimeField(auto_now_add=True)
 
 
     class Meta:

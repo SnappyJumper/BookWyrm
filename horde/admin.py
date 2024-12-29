@@ -20,7 +20,7 @@ class AuthorAdmin(SummernoteModelAdmin):
     list_display = ("name", "nationality", "genre")
     search_fields = ["name"]
     list_filter = ["genre"]
-    prepopulated_fields = {"slug": ("name",)}
+    prepopulated_fields = {"slug_author": ("name",)}
     summernote_fields = ("bio")
 
 

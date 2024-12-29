@@ -18,6 +18,8 @@ class HomeBookList(generic.ListView):
     template_name = "horde/index.html"
     paginate_by = 6  
 
+
+
 def book_review(request, slug):
     """
     Displays an individual :model:'horde.Book'.
@@ -40,7 +42,7 @@ def book_review(request, slug):
         {"book": book},
     )
 
-def author_bio(request, slug):
+def author_bio(request, slug_author):
     """
     Displays an individual :model:'horde.Author'.
 
@@ -53,8 +55,8 @@ def author_bio(request, slug):
     :template: 'horde/author_bio.html
     """
 
-    queryset = Author.objects.filter(status=1)
-    author = get_object_or_404(queryset, slug=slug)
+    queryset = Author.objects.all()
+    author = get_object_or_404(queryset, slug_author=slug_author)
 
     return render(
         request,
