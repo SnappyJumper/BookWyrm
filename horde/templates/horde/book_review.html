@@ -5,10 +5,10 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Book Title goes in these h1 tags -->
+                <!-- Book Title and Author goes in this h1 tag -->
                 <h1 class="post-title">{{ book.title }} by {{ book.author }}</h1>
-                <!-- Reviewer Details -->
-                <p class="post-subtitle">{{ book.review_author }}</p>
+                <!-- Publish Details -->
+                <p class="post-subtitle">Published: {{ book.book_published }}</p>
             
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
@@ -28,6 +28,10 @@
                     {{ book.review | safe }}
                 </p>
             </div>
+            <!-- The details about the reviewer, their overall rating and date they posted the review go in these p tags -->
+            <p>Review by: {{ book.review_author }}</p>
+            <p>My Rating (out of 5): {{ book.rating }}</p>
+            <p>{{ book.created_on }}</p>
         </div>
     </div>
 </div>
