@@ -29,7 +29,6 @@ SECRET_KEY = 'django-insecure-f7uu!z#@dusf6u(chl^rz3bf&*s%xse7sjs0-e=c3*1j7fpbs-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = [
     '8000-snappyjumper-bookwyrm-g8zp887yn90.ws.codeinstitute-ide.net'
     ,'.herokuapp.com']
@@ -48,6 +47,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'django_summernote',
     'horde',
 ]
@@ -55,6 +56,9 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

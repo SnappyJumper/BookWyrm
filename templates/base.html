@@ -73,6 +73,11 @@
     </nav>
 
     <main class="flex-shrink-0 main-bg">
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">Logged in: {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">Please Login for full access to the Horde!</p>
+        {% endif %}
 
         {% block content %}
         <!-- Content Goes here -->
