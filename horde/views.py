@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Book, Author
-from .forms import BookReviewForm
+from .forms import BookReviewForm, AuthorForm
 # Create your views here.
 
 class BookList(generic.ListView):
@@ -72,7 +72,7 @@ def new_review(request):
 
     """
     Takes the data from the book_review_form and saves it to the database
-    
+
     """
 
     # if request.method == "POST":
@@ -95,4 +95,23 @@ def new_review(request):
         {
            "book_review_form": book_review_form 
         },
+    )
+
+def new_author(request):
+    """
+    Creates an instance of the AuthorForm, saves it to the variable author_form and saves it to the database
+    """
+
+    author_form = AuthorForm()
+    if request.method == "POST":
+        author_form = AuthorForm(data=request.POST)
+    if author_form.is_valid():
+        author_form.save()
+
+    return render(
+        request,
+        "horde/new_author.html",
+        {
+            "author_form": author_form
+        }
     )

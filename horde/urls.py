@@ -9,5 +9,6 @@ urlpatterns = [
     path("reviews/<slug:slug>/", views.book_review, name="book_review"),
     path("reviews/new-review", views.new_review, name="new_review"),
     path("authors/<slug:slug_author>/", views.author_bio, name="author_bio"),
+    path("authors/new-author", views.new_author, name="new_author"),
     
 ]
