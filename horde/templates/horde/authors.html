@@ -9,35 +9,38 @@
         <!-- Author Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for author in author_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <a href="{% url 'author_bio' author.slug_author %}" class="post-link">
-                                <h2 class="card-title">{{ author.name }}</h2>
-                            </a>
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Nationality: {{ author.nationality }}</p>
-                                </div>
-                                <div class="image-flash">
-                                    <p class="author">Born: {{ author.date_of_birth }}</p>
-                                </div>
-                                <div class="image-flash">
-                                    <p class="author">Genre: {{ author.genre }}</p>
+                {% if  author_list|length == 0 %}
+                    <p>There are no Author Bios</p>
+                {% else %}
+                    {% for author in author_list %}
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <a href="{% url 'author_bio' author.slug_author %}" class="post-link">
+                                        <h2 class="card-title">{{ author.name }}</h2>
+                                    </a>
+                                    <div class="image-container">
+                                        <div class="image-flash">
+                                            <p class="author">Nationality: {{ author.nationality }}</p>
+                                        </div>
+                                        <div class="image-flash">
+                                            <p class="author">Born: {{ author.date_of_birth }}</p>
+                                        </div>
+                                        <div class="image-flash">
+                                            <p class="author">Genre: {{ author.genre }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        {% if forloop.counter|divisibleby:3 %}
                     </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
+                    <div class="row">
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    {% endif %}
             </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
-            </div>
-        </div>
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
