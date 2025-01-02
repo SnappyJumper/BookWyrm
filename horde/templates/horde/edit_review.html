@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- index.html content starts here -->
+<h1>Edit Review</h1>
+
+Creating New Reviews
+ <div class="col-md-4 card mb-4 mt-3">
+    <div class="card-body">
+      {% if user.is_authenticated %}
+      <h3>Leave a New Review:</h3>
+      <p>Reviewing as: {{ user.username }}</p>
+      <form id="BookReviewForm" method="post"
+        style="margin-top: 1.3em;">
+        {{ edit_book_review_form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit"
+          class="btn btn-signup btn-lg">Submit</button>
+      </form>
+      {% else %}
+      <p>Log in to leave a comment</p>
+      {% endif %}
+    </div>
+  </div>
+
+<!-- index.html content ends here -->
+{% endblock %}

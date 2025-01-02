@@ -10,7 +10,13 @@
                 <h1 class="post-title">{{ book.title }} by {{ book.author }}</h1>
                 <!-- Publish Details -->
                 <p class="post-subtitle">Published: {{ book.book_published }}</p>
-            
+                <!-- Edit and Delete Buttons -->
+                <div class="owner-options">
+                    {% if user.is_authenticated and book.review_author == user %}
+                    
+                    <button class="btn btn-edit">Delete</button>
+                    {% endif %}
+                </div>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/dragon_reading-min.jpeg' %}" class="scale" alt="placeholder">

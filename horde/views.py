@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .models import Book, Author
 from .forms import BookReviewForm, AuthorForm
 # Create your views here.
@@ -106,6 +108,7 @@ def new_author(request):
     if request.method == "POST":
         author_form = AuthorForm(data=request.POST)
     if author_form.is_valid():
+
         author_form.save()
 
     return render(
@@ -114,4 +117,38 @@ def new_author(request):
         {
             "author_form": author_form
         }
+    )
+
+def book_edit(request, slug):
+    """
+    view for editing book reviews
+    """
+    # if request.method == "POST":
+    #     queryset = Book.objects.filter(status=1)
+    #     book = get_object_or_404(queryset, slug=slug)
+    #     book_content =get_object_or_404(Book, pk=book_id) 
+    #     edit_book_review_form = BookReviewForm(data=request.POST, instance= book)
+
+    #     if edit_book_review_form.is_valid() and comment.author == request.user:
+    #         book = edit_book_review_form.save()
+    #         messages.add_message(request, messages.SUCCESS, "Review Updated!")
+    #     else:
+    #         messages.add_message(request, messages.ERROR, "Error updating Review!")
+
+    # return HttpResponseRedirect(reverse("book_review", args=[slug]))
+    queryset = Book.objects.filter(status=1)
+    book = get_object_or_404(queryset, slug=slug)
+    edit_book_review_form = BookReviewForm(request.POST, instance=book)
+    
+    if request.method == "POST":
+        
+        if edit_book_review_form.is_valid and book.review_author == request.user:
+            edit_book_review_form.save()
+    
+    return render(
+        request,
+        "horde/edit_review.html",
+        {
+           "edit_book_review_form": edit_book_review_form 
+        },
     )
