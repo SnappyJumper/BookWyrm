@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.views import generic, View
+from django.views.generic import TemplateView, DeleteView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 from .models import Book, Author
 from .forms import BookReviewForm, AuthorForm
 # Create your views here.
@@ -99,25 +101,61 @@ def new_review(request):
         },
     )
 
-def new_author(request):
-    """
-    Creates an instance of the AuthorForm, saves it to the variable author_form and saves it to the database
-    """
+# def new_author(request):
+#     """
+#     Creates an instance of the AuthorForm, saves it to the variable author_form and saves it to the database
+#     """
 
-    author_form = AuthorForm()
-    if request.method == "POST":
-        author_form = AuthorForm(data=request.POST)
-    if author_form.is_valid():
+    # author_form = AuthorForm()
+    # if request.method == "POST":
+    #     author_form = AuthorForm(data=request.POST)
+    # if author_form.is_valid():
 
-        author_form.save()
+    #     author_form.save()
 
-    return render(
-        request,
-        "horde/new_author.html",
-        {
-            "author_form": author_form
-        }
-    )
+    # return render(
+    #     request,
+    #     "horde/new_author.html",
+    #     {
+    #         "author_form": author_form
+    #     }
+    # )
+
+    # return redirect(reverse("authors"))
+
+class AddAuthor(View):
+    template_name = "horde/new_author.html"
+    
+
+    def get(self, request, *args, **kwargs):
+        return render(
+            request,
+            "horde/new_author.html",
+        )
+
+    def post(self, request):
+        
+        new_name = request.POST.get("name")
+        new_slug_author = request.POST.get("slug_author")
+        new_date_of_birth= request.POST.get("date_of_birth")
+        new_nationality = request.POST.get("nationality")
+        new_genre = request.POST.get("genre")
+        new_favourite_book = request.POST.get("favourite_book")
+        new_bio = request.POST.get("bio")
+
+        CreateNewAuthor = Author.objects.create(
+            name = new_name,
+            slug_author = new_slug_author,
+            date_of_birth = new_date_of_birth,
+            nationality = new_nationality,
+            genre = new_genre,
+            favourite_book = new_favourite_book,
+            bio = new_bio,
+        )
+
+        CreateNewAuthor.save()
+
+        return redirect(reverse('authors'))
 
 def book_edit(request, slug):
     """
@@ -133,13 +171,16 @@ def book_edit(request, slug):
         if edit_book_review_form.is_valid and book.review_author == request.user:
             edit_book_review_form.save()
     
-    return render(
+    return 
+    render
+    (
         request,
         "horde/edit_review.html",
         {
            "edit_book_review_form": edit_book_review_form 
         },
-    )
+     )
+
 
 def book_delete(request, slug):
 

@@ -3,8 +3,8 @@
 
 {% block content %}
 
-<!-- index.html content starts here -->
-<h1>New Author Form Page</h1>
+
+<!-- <h1>New Author Form Page</h1>
 
 Creating New Authors
  <div class="col-md-4 card mb-4 mt-3">
@@ -23,7 +23,57 @@ Creating New Authors
       <p>Log in to leave a comment</p>
       {% endif %}
     </div>
-  </div>
+  </div> -->
 
-<!-- index.html content ends here -->
+  {% if user.is_authenticated %}
+  <div class="w-50 mx-auto py-5">
+      <form class="row g-3" method="POST">
+          {% csrf_token %}
+  
+          <div class="col-12">
+              <label for="name">Author's Name</label>
+              <input type="text" class="form-control" id="name" name="name">
+          </div>
+  
+          <div class="col-12">
+              <label for="slug_author">Author Slug(no punctuation or spaces(use "-"))</label>
+              <input type="text" class="form-control" id="slug_author" name="slug_author">
+          </div>
+  
+          <div class="col-12 mx-auto">
+              <label for="date_of_birth">Date of Birth</label>
+              <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+          </div>
+
+          <div class="col-12">
+            <label for="nationality">Nationality</label>
+            <input type="text" class="form-control" id="nationality" name="nationality">
+          </div>
+
+          <div class="col-12">
+            <label for="genre">Genre</label>
+            <input type="text" class="form-control" id="genre" name="genre">
+          </div>
+
+
+          <div class="col-12">
+            <label for="favourite_book">Favourite Book</label>
+            <input type="text" class="form-control" id="favourite_book" name="favourite_book">
+          </div>
+
+          <div class="col-12">
+            <label for="bio">Bio</label>
+            <textarea id="bio" class="form-control" name="bio"></textarea>
+          </div>
+  
+          <button id="submitButton" type="submit"
+          class="btn btn-signup btn-lg">Submit</button>
+      </form>
+  </div>
+  {% else %}
+  
+  Please login to edit your profile
+  
+  {% endif %}
+
 {% endblock %}
