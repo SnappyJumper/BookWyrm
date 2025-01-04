@@ -14,7 +14,7 @@ Creating New Reviews
       <p>Reviewing as: {{ user.username }}</p>
       <form id="BookReviewForm" method="post"
         style="margin-top: 1.3em;">
-        {{ edit_book_review_form | crispy }}
+        {{form | crispy }}
         {% csrf_token %}
         <button id="submitButton" type="submit"
           class="btn btn-signup btn-lg">Submit</button>
