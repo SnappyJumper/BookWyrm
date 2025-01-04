@@ -35,7 +35,7 @@ class Book(models.Model):
 
 
     class Meta:
-        ordering = ["created_on"]
+        ordering = ["title"]
 
     def __str__(self):
         return f"Title: {self.title}"

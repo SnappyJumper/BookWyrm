@@ -27,27 +27,15 @@ class HomeBookList(generic.ListView):
 
 def book_review(request, slug):
     """
-    Displays an individual :model:'horde.Book'.
-
-    **Context**
-    ''book''
-        An instance of :model:'horde.Book'
-
-    **Template**
-
-    :template: 'horde/book_review.html'    
+    Displays an individual review :model:'horde.Book'.
     """
-
-    queryset = Book.objects.filter(status=1)
+    queryset = Book.objects.filter(status=1)  # Fetch only published reviews
     book = get_object_or_404(queryset, slug=slug)
-    
 
     return render(
         request,
         "horde/book_review.html",
-        {
-            "book": book,
-        },
+        {"book": book},  # Pass the book to the template
     )
 
 def author_bio(request, slug_author):

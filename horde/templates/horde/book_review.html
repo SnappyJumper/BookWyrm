@@ -13,7 +13,7 @@
                 <!-- Edit and Delete Buttons -->
                 <div class="owner-options">
                     {% if user.is_authenticated and book.review_author == user %}
-                    <!-- <a href="{% url 'book_edit' %}" aria-current="page" >Edit</a> -->
+                    
                     <button class="btn btn-edit">Delete</button>
                     {% endif %}
                 </div>
@@ -36,7 +36,7 @@
                 </p>
             </div>
             <!-- The details about the reviewer, their overall rating and date they posted the review go in these p tags -->
-            <p>Review by: {{ book.review_author }}</p>
+            <p>Review by: {{ book.review_author.username }}</p>
             <p>My Rating (out of 5): {{ book.rating }}</p>
             <p>{{ book.created_on }}</p>
         </div>
