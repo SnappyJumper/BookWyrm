@@ -30,12 +30,12 @@ class Book(models.Model):
     review = models.TextField()
     rating = models.IntegerField(choices=STAR, default=0)
     status = models.IntegerField(choices=STATUS, default=0)
-    review_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="horde_books")
+    review_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="book_reviews")
     created_on = models.DateTimeField(auto_now_add=True)
 
 
     class Meta:
-        ordering = ["title"]
+        ordering = ["created_on"]
 
     def __str__(self):
         return f"Title: {self.title}"

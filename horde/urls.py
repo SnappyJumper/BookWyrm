@@ -7,7 +7,7 @@ urlpatterns = [
     path("authors/",views.AuthorList.as_view(), name ="authors"),
     
     path("reviews/<slug:slug>/", views.book_review, name="book_review"),
-    path("reviews/new-review", views.new_review, name="new_review"),
+    path("reviews/new-review", views.AddReview.as_view(), name="new_review"),
     path("reviews/<slug:slug>/edit-review", views.book_edit, name="book_edit"),
     path("reviews/<slug:slug>/delete-review", views.book_delete, name ="book_delete" ),
     path("authors/<slug:slug_author>/", views.author_bio, name="author_bio"),

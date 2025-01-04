@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.views.generic import TemplateView, DeleteView
+from django.views.generic import TemplateView, DeleteView, CreateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -72,58 +72,27 @@ def author_bio(request, slug_author):
         {"author": author},
     )
 
-def new_review(request):
-
-    """
-    Takes the data from the book_review_form and saves it to the database
-
-    """
-
-    # if request.method == "POST":
-    #     n_review = BookReviewForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-
-    book_review_form = BookReviewForm()
-    if request.method == "POST":
-        book_review_form = BookReviewForm(data=request.POST)
-    if book_review_form.is_valid():
-        book_review_form.save()
+class AddReview(View):
     
-    
-    
+    template_name = "horde/new_review.html"
 
-    return render(
-        request,
-        "horde/new_review.html",
-        {
-           "book_review_form": book_review_form 
-        },
-    )
+    def get(self, request, *args, **kwargs):
+        form = BookReviewForm()
+        return render(request, self.template_name, {"form": form})
 
-# def new_author(request):
-#     """
-#     Creates an instance of the AuthorForm, saves it to the variable author_form and saves it to the database
-#     """
+    def post(self, request, *args, **kwargs):
+        form = BookReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.review_author = request.user  # Set the logged-in user as the review_author
+            review.save()
+            return redirect(reverse("reviews"))
+        return render(request, self.template_name, {"form": form})
 
-    # author_form = AuthorForm()
-    # if request.method == "POST":
-    #     author_form = AuthorForm(data=request.POST)
-    # if author_form.is_valid():
-
-    #     author_form.save()
-
-    # return render(
-    #     request,
-    #     "horde/new_author.html",
-    #     {
-    #         "author_form": author_form
-    #     }
-    # )
-
-    # return redirect(reverse("authors"))
+      
 
 class AddAuthor(View):
+
     template_name = "horde/new_author.html"
     
 
@@ -135,27 +104,18 @@ class AddAuthor(View):
 
     def post(self, request):
         
-        new_name = request.POST.get("name")
-        new_slug_author = request.POST.get("slug_author")
-        new_date_of_birth= request.POST.get("date_of_birth")
-        new_nationality = request.POST.get("nationality")
-        new_genre = request.POST.get("genre")
-        new_favourite_book = request.POST.get("favourite_book")
-        new_bio = request.POST.get("bio")
+        template_name = "horde/new_author.html"
 
-        CreateNewAuthor = Author.objects.create(
-            name = new_name,
-            slug_author = new_slug_author,
-            date_of_birth = new_date_of_birth,
-            nationality = new_nationality,
-            genre = new_genre,
-            favourite_book = new_favourite_book,
-            bio = new_bio,
-        )
+    def get(self, request, *args, **kwargs):
+        form = AuthorForm()
+        return render(request, self.template_name, {"form": form})
 
-        CreateNewAuthor.save()
-
-        return redirect(reverse('authors'))
+    def post(self, request, *args, **kwargs):
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("authors"))
+        return render(request, self.template_name, {"form": form})
 
 def book_edit(request, slug):
     """
