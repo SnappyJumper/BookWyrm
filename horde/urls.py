@@ -13,5 +13,5 @@ urlpatterns = [
     path("authors/<slug:slug_author>/", views.author_bio, name="author_bio"),
     path("authors/new-author", views.AddAuthor.as_view(), name="new_author"),
     path("authors/<slug:slug_author>/edit-author", views.author_edit, name="author_edit"),
-    
+    path("authors/<slug:slug_author>/delete-author", views.author_delete, name="author_delete"),
 ]

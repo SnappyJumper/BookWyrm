@@ -110,20 +110,6 @@ def book_delete(request, slug):
     return redirect("reviews")
 
 class AddAuthor(View):
-     # template_name = "horde/new_review.html"
-
-    # def get(self, request, *args, **kwargs):
-    #     form = BookReviewForm()
-    #     return render(request, self.template_name, {"form": form})
-
-    # def post(self, request, *args, **kwargs):
-    #     form = BookReviewForm(request.POST)
-    #     if form.is_valid():
-    #         review = form.save(commit=False)
-    #         review.review_author = request.user  # Set the logged-in user as the review_author
-    #         review.save()
-    #         return redirect(reverse("reviews"))
-    #     return render(request, self.template_name, {"form": form})
     template_name = "horde/new_author.html"
 
     def get(self, request, *args, **kwargs):
@@ -163,5 +149,28 @@ def author_edit(request, slug_author):
 
     return render(request, "horde/edit_author.html", {"form": form, "author": author})
 
+def author_delete(request, slug_author):
+    """
+    view for deleting author bios
+    """
 
+#     queryset = Book.objects.filter(status=1)
+#     book = get_object_or_404(queryset, slug=slug)
 
+#     if book.review_author == request.user:
+#         book.delete()
+#         messages.add_message(request, messages.SUCCESS, "Review Deleted!")
+#     else:
+#         messages.add_message(request, messages.ERROR, "You can only delete your own Reviews!")
+
+#     return redirect("reviews")
+    queryset = Author.objects.all()
+    author = get_object_or_404(queryset, slug_author=slug_author)
+
+    if author.posted_by == request.user:
+        author.delete()
+        messages.add_message(request, messages.SUCCESS, "Author Deleted!")
+    else:
+        messages.add_message(request, messages.ERROR, "You can only delete your own Authors!")
+
+    return redirect("authors")
