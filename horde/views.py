@@ -1,3 +1,4 @@
+from django.db import models
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
@@ -7,9 +8,19 @@ from .forms import BookReviewForm, AuthorForm
 # Create your views here.
 
 class BookList(generic.ListView):
-    queryset = Book.objects.all()
     template_name = "horde/reviews.html"
     paginate_by = 6
+
+    def get_queryset(self):
+        # determines if the logged in user making the request is properly authenticated
+        if self.request.user.is_authenticated:
+            # Show published reviews to all users and drafts only to the user who made them
+            return Book.objects.filter(
+                models.Q(status=1) | models.Q(status=0, review_author=self.request.user)
+            )
+        else:
+            # Users who are not logged in can only see published reviews
+            return Book.objects.filter(status=1)
 
 class AuthorList(generic.ListView):
     queryset = Author.objects.all()
@@ -27,8 +38,13 @@ def book_review(request, slug):
     """
     Displays an individual review :model:'horde.Book'.
     """
-    queryset = Book.objects.filter(status=1)  # Fetch only published reviews
-    book = get_object_or_404(queryset, slug=slug)
+    
+    book = get_object_or_404(Book, slug=slug)
+
+    if book.status == 0 and book.review_author != request.user:
+
+        messages.error(request, "You are not authorised to view this draft.")
+        return redirect("reviews")
 
     return render(
         request,
