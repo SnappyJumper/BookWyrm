@@ -14,7 +14,7 @@
                 <div class="owner-options">
                     {% if user.is_authenticated and book.review_author == user %}
                     <a href="{% url 'book_edit' slug=book.slug %}" class="btn btn-edit">Edit</a>
-                    <form action="{% url 'book_delete' slug=book.slug %}" method="POST" style="display:inline;">
+                    <form action="{% url 'book_delete' slug=book.slug %}" method="POST" onsubmit="return confirmDelete();">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-delete">Delete</button>
                     </form>

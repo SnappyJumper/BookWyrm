@@ -12,5 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 .replace(/-+/g, '-'); // Remove multiple consecutive dashes
             slugField.value = slugValue;
         });
-    }
+    } 
 });
+
+function confirmDelete() {
+    return confirm("Are you sure you want to delete this review? This action cannot be undone.");
+}

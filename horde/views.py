@@ -75,23 +75,6 @@ class AddReview(View):
             return redirect(reverse("reviews"))
         return render(request, self.template_name, {"form": form})
 
-      
-
-class AddAuthor(View):
-
-    template_name = "horde/new_author.html"
-
-    def get(self, request, *args, **kwargs):
-        form = AuthorForm()
-        return render(request, self.template_name, {"form": form})
-
-    def post(self, request, *args, **kwargs):
-        form = AuthorForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse("authors"))
-        return render(request, self.template_name, {"form": form})
-
 def book_edit(request, slug):
     """
     view for editing book reviews
@@ -111,8 +94,7 @@ def book_edit(request, slug):
     else:
         form = BookReviewForm(instance=book)
 
-    return render(request, "horde/edit_review.html", {"form": form, "book": book})
-
+    return render(request, "horde/edit_review.html", {"form": form, "book": book})    
 
 def book_delete(request, slug):
 
@@ -126,3 +108,23 @@ def book_delete(request, slug):
         messages.add_message(request, messages.ERROR, "You can only delete your own Reviews!")
 
     return redirect("reviews")
+
+class AddAuthor(View):
+
+    template_name = "horde/new_author.html"
+
+    def get(self, request, *args, **kwargs):
+        form = AuthorForm()
+        return render(request, self.template_name, {"form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("authors"))
+        return render(request, self.template_name, {"form": form})
+
+
+
+
+
