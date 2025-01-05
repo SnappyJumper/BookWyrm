@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- index.html content starts here -->
+<h1>Edit Author</h1>
+
+Editing an Author Bio
+ <div class="col-md-4 card mb-4 mt-3">
+    <div class="card-body">
+      {% if user.is_authenticated %}
+      <h3>Edit an Author Bio:</h3>
+      <p>Editing as: {{ user.username }}</p>
+      <form id="AuthorForm" method="post"
+        style="margin-top: 1.3em;">
+        {{form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit"
+          class="btn btn-signup btn-lg">Submit</button>
+      </form>
+      {% else %}
+      <p>Log in to leave a comment</p>
+      {% endif %}
+    </div>
+  </div>
+
+<!-- index.html content ends here -->
+{% endblock %}

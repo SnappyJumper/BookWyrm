@@ -5,10 +5,10 @@ class BookReviewForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = "__all__"
-        exclude = ['review_author']  # Exclude review_author from the form
+        exclude = ["review_author"]  # Exclude review_author from the form
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
     
         
         
@@ -17,4 +17,5 @@ class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
         fields = "__all__"
+        exclude = ["posted_by"]
 

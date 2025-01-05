@@ -110,7 +110,20 @@ def book_delete(request, slug):
     return redirect("reviews")
 
 class AddAuthor(View):
+     # template_name = "horde/new_review.html"
 
+    # def get(self, request, *args, **kwargs):
+    #     form = BookReviewForm()
+    #     return render(request, self.template_name, {"form": form})
+
+    # def post(self, request, *args, **kwargs):
+    #     form = BookReviewForm(request.POST)
+    #     if form.is_valid():
+    #         review = form.save(commit=False)
+    #         review.review_author = request.user  # Set the logged-in user as the review_author
+    #         review.save()
+    #         return redirect(reverse("reviews"))
+    #     return render(request, self.template_name, {"form": form})
     template_name = "horde/new_author.html"
 
     def get(self, request, *args, **kwargs):
@@ -120,11 +133,35 @@ class AddAuthor(View):
     def post(self, request, *args, **kwargs):
         form = AuthorForm(request.POST)
         if form.is_valid():
+            author = form.save(commit=False)
+            author.posted_by = request.user # Set logged in User as the posted_by
             form.save()
             return redirect(reverse("authors"))
         return render(request, self.template_name, {"form": form})
 
+   
+def author_edit(request, slug_author):
+    """
+    view for editing author bios
+    """
+    author = get_object_or_404(Author, slug_author=slug_author)
 
+    if request.user != author.posted_by:
+        messages.error(request, "You are not authorized to edit this author.")
+        return redirect("home")
+
+    if request.method == "POST":
+        form = AuthorForm(request.POST, instance=author)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Author updated successfully.")
+            # return redirect("authors")
+            return redirect("author_bio", slug_author=author.slug_author)
+
+    else:
+        form = AuthorForm(instance=author)
+
+    return render(request, "horde/edit_author.html", {"form": form, "author": author})
 
 
 
