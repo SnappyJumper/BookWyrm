@@ -14,6 +14,7 @@ class Author(models.Model):
     genre = models.CharField(max_length=50)
     favourite_book = models.CharField(max_length=200)
     bio = models.TextField()
+    status = models.IntegerField(choices=STATUS, default=0)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author_bios")
 
     class Meta:

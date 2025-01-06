@@ -23,9 +23,21 @@ class BookList(generic.ListView):
             return Book.objects.filter(status=1)
 
 class AuthorList(generic.ListView):
-    queryset = Author.objects.all()
     template_name = "horde/authors.html"
     paginate_by = 6 
+
+    def get_queryset(self):
+        # determines if the logged in user making the request is properly authenticated
+        if self.request.user.is_authenticated:
+            # Show published Author Bios to all users and drafts to only the user who made them
+            return Author.objects.filter(
+                models.Q(status=1) | models.Q(status=0, posted_by=self.request.user)
+            )
+        else:
+            # Users who are not logged in can only see published Author Bios
+            return Author.objects.filter(status=1)
+
+
 
 class HomeBookList(generic.ListView):
     queryset = Book.objects.all() 

@@ -54,6 +54,18 @@
         </ul>
     </nav>
     {% endif %}
+    {% if user.is_authenticated %}
+            <h3>Your Drafts</h3>
+            <ul>
+                {% for author in object_list %}
+                {% if author.status == 0 and author.posted_by == user %}
+                <li>
+                    <a href="{% url 'author_bio' slug_author=author.slug_author %}">{{ author.name }}</a> (Draft)
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
 </div>
 
 {% if user.is_authenticated %}
