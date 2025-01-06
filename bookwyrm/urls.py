@@ -23,3 +23,5 @@ urlpatterns = [
     path("summernote/", include('django_summernote.urls')),
     path("", include("horde.urls"), name="horde-urls"),
 ]
+
+handler404 = "horde.views.custom_404" 

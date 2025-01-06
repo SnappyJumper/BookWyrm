@@ -202,3 +202,6 @@ def author_delete(request, slug_author):
         messages.add_message(request, messages.ERROR, "You can only delete your own Authors!")
 
     return redirect("authors")
+
+def custom_404(request, exception):
+    return render(request, "404.html", status=404)
