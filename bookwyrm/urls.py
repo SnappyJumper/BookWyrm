@@ -14,8 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import handler404
+from horde.views import custom_404
 from django.contrib import admin
 from django.urls import path, include
+
+handler404 = custom_404
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
@@ -24,4 +28,3 @@ urlpatterns = [
     path("", include("horde.urls"), name="horde-urls"),
 ]
 
-handler404 = "horde.views.custom_404" 

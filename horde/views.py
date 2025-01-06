@@ -7,6 +7,10 @@ from .forms import BookReviewForm, AuthorForm
 
 # Create your views here.
 
+def custom_404(request, exception):
+    # Render the 404.html template
+    return render(request, "horde/404.html", {}, status=404)
+
 class BookList(generic.ListView):
     template_name = "horde/reviews.html"
     paginate_by = 6
@@ -203,5 +207,3 @@ def author_delete(request, slug_author):
 
     return redirect("authors")
 
-def custom_404(request, exception):
-    return render(request, "404.html", status=404)
