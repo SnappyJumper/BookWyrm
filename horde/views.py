@@ -44,9 +44,19 @@ class AuthorList(generic.ListView):
 
 
 class HomeBookList(generic.ListView):
-    queryset = Book.objects.all() 
+
+    queryset = Book.objects.filter(status=1)  # Define the queryset
+    
+
     template_name = "horde/index.html"
-    paginate_by = 6  
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # displays 6 published reviews on the home page
+        context["featured_books"] = Book.objects.filter(status=1)[:3]
+        # displays 4 published authors on the home page
+        context["featured_authors"] = Author.objects.filter(status=1)[:4] 
+        return context
 
 
 

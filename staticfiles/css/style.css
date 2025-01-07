@@ -1,13 +1,142 @@
+
 body {
-    background-color: #F9FAFC;
+    background-color: #8b0000;
+    color: #f5f5f5
 }
 
+/* ------------------------------------------Header */
 .brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-family: "Kaushan Script", serif;
+    font-size: 3rem;
+    font-weight: 400;
     color: #4A4A4F;
 }
+
+.hidden-on-dropdown {
+    visibility: hidden;
+}
+/* ------------------------------------------Main */
+main {
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #f5f5f5;
+}
+/* index.html */
+.dragon-guarding {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.welcome-title {
+    font-family: "Kaushan Script", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+.welcome {
+    background-color: #4b5320;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.welcome-btns {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.review-card {
+    background-color: #4b5320;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-review-text-title {
+    font-size: 30px;
+
+}
+
+.author-card {
+    background-color: #4b5320;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.author-text-name {
+    font-size: 30px;
+}
+
+/* Buttons */
+
+.owner-options {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn-signup,
+.btn-edit {
+    background-color: #188181;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23BBBB;
+}
+
+.btn-delete {
+    color: #fff;
+    background: #E84610;
+}
+
+/* Author and Review Masthead */
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    max-height: fit-content;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #4b5320;
+    color: white;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+    
+}
+/* Image scale */
+.scale {
+    width: 400px;
+    height: 400px;
+}
+
+.scale-typewritter {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ------------------------------------------Footer */
+
 
 .red-o {
     color: #E84610;
@@ -26,7 +155,7 @@ body {
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #8b0000;
 }
 
 .card {
@@ -47,10 +176,7 @@ body {
     background-color: #188181;
 }
 
-.scale {
-    width: 100%;
-    height: auto;
-}
+
 
 .author {
     color: white;
@@ -58,39 +184,7 @@ body {
     text-transform: uppercase;
 }
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
 
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
 
 .post-link {
     text-decoration: none;
@@ -110,19 +204,10 @@ body {
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
+    font-size: 0.8rem;
 }
 
-.btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
 
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
 
 .link {
     color: #23BBBB;
@@ -135,24 +220,6 @@ body {
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
-
 .faded {
     color: rgb(172, 175, 175);
 }
@@ -160,3 +227,74 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+.footer {
+    background-color: #f5f5f5;
+    color: #4A4A4F;
+    font-size: 1.5rem;
+}
+
+
+
+/*Media query for tablets or larger (768px and up)*/
+@media screen and (min-width: 768px) {
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #4b5320;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(10deg);
+    z-index: 100;
+}
+
+/* Image scale */
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.scale-typewritter {
+    width: 100%;
+}
+
+.masthead-text {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+
+
+}
+
+/*Media query for laptops and larger (992px and up)*/
+@media screen and (min-width: 992px) {
+    .hidden-on-dropdown {
+        visibility: visible;
+    }
+
+    .navbar-text {
+        border-bottom-style: solid;
+        border-color: #8b0000;
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        display: flex;
+        flex-basis: auto;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+
+    .nav-item {
+        display: flex;
+    }
+}
+
