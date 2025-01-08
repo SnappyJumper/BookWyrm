@@ -74,6 +74,24 @@ main {
     font-size: 30px;
 }
 
+/* login.html */
+
+.credentials-box {
+    background-color: #4b5320;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px;
+    
+}
+
+.dragon-computer-img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+
 /* Buttons */
 
 .owner-options {
@@ -277,6 +295,8 @@ main {
 
 /*Media query for laptops and larger (992px and up)*/
 @media screen and (min-width: 992px) {
+    
+    /* --------------------------------------------------------Header */
     .hidden-on-dropdown {
         visibility: visible;
     }
@@ -296,5 +316,15 @@ main {
     .nav-item {
         display: flex;
     }
+
+    /* --------------------------------------------------------Body */
+
+    /* login.html */
+    .credentials-box {
+        margin-right: 300px;
+        margin-left: 300px;
+    }
+
+    
 }
 

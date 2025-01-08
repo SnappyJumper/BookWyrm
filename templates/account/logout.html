@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-
+{% load static %}
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="credentials-box text-center">
+
+    <div>
+        <img src="{% static 'images/dragon_tears_min.jpeg' %}" class="dragon-computer-img">
+    </div>
+
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign Out" %}</h3>
