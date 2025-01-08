@@ -3,9 +3,9 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div class="w-50 mx-auto py-5">
-    <h2>Add a New Author</h2>
-    <form method="POST">
+<div class="container form-box py-5">
+    <h2 class="index-sub">Add a New Author</h2>
+    <form class="form-size" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
       <div class="col-12">
