@@ -15,8 +15,8 @@
                     {% for author in author_list %}
                         <div class="col-md-4">
                             <div class="card mb-4">
-                                <div class="card-body">
-                                    <a href="{% url 'author_bio' author.slug_author %}" class="post-link">
+                                <div class="card-body review-card">
+                                    <a href="{% url 'author_bio' author.slug_author %}" class="link-text">
                                         <h2 class="card-title">{{ author.name }}</h2>
                                     </a>
                                     <div class="image-container">

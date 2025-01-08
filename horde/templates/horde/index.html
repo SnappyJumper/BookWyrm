@@ -27,7 +27,7 @@
 
     <!-- Featured Reviews Section -->
     <section class="mb-5 review-card">
-        <h2 class="mb-4">Featured Reviews</h2>
+        <h2 class="mb-4 index-sub">Featured Reviews</h2>
         <div class="row">
             {% for book in featured_books %}
             <div class="col-md-4">
@@ -51,7 +51,7 @@
 
     <!-- Featured Authors Section -->
     <section class="mb-5 author-card">
-        <h2 class="mb-4">Meet the Authors</h2>
+        <h2 class="mb-4 index-sub">Meet the Authors</h2>
         <div class="row">
             {% for author in featured_authors %}
             <div class="col-md-3">
@@ -72,7 +72,7 @@
 
     <!-- Call to Action -->
     <section class="text-center">
-        <h2>Add to our Horde!</h2>
+        <h2 class="index-sub">Add to our Horde!</h2>
         {% if not user.is_authenticated %}
             <p class="lead">Login or sign up below to add your review to our collection</p>
             <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Sign Up</a>
