@@ -6,8 +6,10 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Book Title and Author goes in this h1 tag -->
-                <h1 class="post-title">{{ book.title }} by {{ book.author }}</h1>
+                <!-- Book Title -->
+                <h1 class="post-title">{{ book.title }}</h1>
+                <!-- Book Author -->
+                <p class="post-subtitle">Written by {{ book.author }}</p>
                 <!-- Publish Details -->
                 <p class="post-subtitle">Published: {{ book.book_published }}</p>
                 <!-- Edit and Delete Buttons -->
@@ -22,7 +24,7 @@
                 </div>
             </div>
             <div class=" d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/dragon_reading-min.jpeg' %}" class="scale" alt="placeholder">
+                <img src="{% static 'images/dragon_reading_min.jpeg' %}" class="scale" alt="placeholder">
             </div>
         </div>
     </div>

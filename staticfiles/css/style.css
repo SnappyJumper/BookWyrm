@@ -158,29 +158,10 @@ main {
 
 /* Author and Review Masthead */
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    max-height: fit-content;
-    width: 100%;
-}
 
-.masthead-text {
-    background-color: #4b5320;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-    
-}
 /* Image scale */
 .scale {
-    width: 400px;
+    width: 100%;
     height: 400px;
 }
 
@@ -225,16 +206,45 @@ main {
 
 /* book_review and author_bio .htmls */
 
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    max-height: fit-content;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #4b5320;
+    color: white;
+    position: relative;
+    border-radius: 15px 15px 0 0;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 15px 15px;
+}
+
 .post-title {
-    margin-top: 10%;
-    margin-left: 5%;
+    text-align: center;
+    font-family: "Kaushan Script", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 15px;
+    color: #FFD700;
+   
 }
 
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
+
+
 
 /* 404.html */
 
@@ -310,6 +320,19 @@ main {
 
 /*Media query for tablets or larger (768px and up)*/
 @media screen and (min-width: 768px) {
+
+/* ------------------------------------------------------------Main */
+
+/* author_bio and book_review html  */
+.masthead-text {
+    border-radius: 15px 0 0 15px;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 15px 15px 0;
+}
 
 .masthead-image:after {
     content: "";
@@ -388,6 +411,14 @@ main {
     .credentials-box {
         margin-right: 300px;
         margin-left: 300px;
+    }
+
+    /* book-review and author-bio html */
+
+    .post-title {
+        text-align: left;
+        margin-left: 5%;
+       
     }
 
     

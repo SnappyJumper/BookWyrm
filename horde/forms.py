@@ -7,8 +7,9 @@ class BookReviewForm(forms.ModelForm):
         fields = "__all__"
         exclude = ["review_author"]  # Exclude review_author from the form
 
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
+        widgets = {
+            "book_published": forms.DateInput(attrs={"type": "date", "class": "form-control"}),
+        }
     
         
         
@@ -19,3 +20,6 @@ class AuthorForm(forms.ModelForm):
         fields = "__all__"
         exclude = ["posted_by"]
 
+        widgets = {
+            "date_of_birth": forms.DateInput(attrs={"type": "date", "class": "form-control"}),
+        }
