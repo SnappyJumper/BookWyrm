@@ -1,4 +1,5 @@
 from .models import Book, Author
+from django_summernote.widgets import SummernoteWidget
 from django import forms
 
 class BookReviewForm(forms.ModelForm):
@@ -9,6 +10,7 @@ class BookReviewForm(forms.ModelForm):
 
         widgets = {
             "book_published": forms.DateInput(attrs={"type": "date", "class": "form-control"}),
+            "review": SummernoteWidget(),
         }
     
         
@@ -22,4 +24,5 @@ class AuthorForm(forms.ModelForm):
 
         widgets = {
             "date_of_birth": forms.DateInput(attrs={"type": "date", "class": "form-control"}),
+            "bio": SummernoteWidget(),
         }
