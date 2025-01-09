@@ -1,20 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
-
+<!-- Author Bio Page -->
+<!-- Masthead -->
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Author Name goes in this h1 tag -->
+                <!-- Author Name -->
                 <h1 class="post-title">{{ author.name }}</h1>
-                <!-- Author details go in these p tags -->
+                <!-- Author D.O.B -->
                 <p class="post-subtitle">Born: {{ author.date_of_birth }}</p>
+                <!-- Author Nationality -->
                 <p class="post-subtitle">Nationality: {{ author.nationality }}</p>
+                <!-- Author Favourite Book -->
                 <p class="post-subtitle">Favourite Book: {{ author.favourite_book }}</p>
                 <div class="owner-options">
+                    <!-- Checks to see if user is logged in and if so if they are the content creator so they can edit the content -->
                     {% if user.is_authenticated and author.posted_by == user %}
+                    <!-- Edit button  -->
                     <a href="{% url 'author_edit' slug_author=author.slug_author %}" class="btn btn-edit">Edit</a>
-                    <form action="{% url 'author_delete' slug_author=author.slug_author %}" method="POST" onsubmit="return confirmDelete();">
+                    <!-- Delete button calls confirmDelete in the script.js file -->
+                    <form action="{% url 'author_delete' slug_author=author.slug_author %}" method="POST"
+                        onsubmit="return confirmDelete();">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-delete">Delete</button>
                     </form>
@@ -22,19 +29,20 @@
                 </div>
             </div>
             <div class="d-md-block col-md-6 masthead-image">
+                <!-- Typewritter Image -->
                 <img src="{% static 'images/default_author_min.jpeg' %}" class="scale-typewritter" alt="placeholder">
             </div>
         </div>
     </div>
 </div>
-
+<!-- Content -->
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The Author Bio goes inside the card-text. -->
+                <!-- The Author Bio goes inside the card-text -->
                 <!-- Use the | safe filter inside the template tags -->
-                 <h2 class="index-sub">Bio</h2>
+                <h2 class="index-sub">Bio</h2>
                 <p class="card-text">
                     {{ author.bio | safe }}
                 </p>

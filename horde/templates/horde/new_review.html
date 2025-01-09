@@ -2,16 +2,19 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div class="container form-box py-5">
-    <h2 class="index-sub">Add a New Book Review</h2>
-    <form class="form-size" method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-      </div>
-
-    </form>
-   
+  <h2 class="index-sub">Add a New Book Review</h2>
+  <!-- New Review Form -->
+  <form class="form-size" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+  </form>
 </div>
+{% else %}
+  <p>Please login to edit your profile.</p>
+{% endif %}
 {% endblock %}

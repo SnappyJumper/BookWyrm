@@ -6,7 +6,8 @@
 <div class="container py-5">
     <!-- Welcome Section -->
     <section class="welcome text-center mb-5">
-        <div class="hero_img">
+        <div>
+            <!-- Dragon Guarding Image -->
             <img src="{% static 'images/dragon_guarding.jpeg' %}" class="dragon-guarding">
         </div>
         <h1 class="display-4 welcome-title">Welcome to BookWyrm!</h1>
@@ -15,11 +16,16 @@
             author stands as a beacon of inspiration. Your next favorite tale awaits—join us, and share your discoveries
             with the legendary BookWyrms!</p>
         <div class="welcome-btns">
+            <!-- Checks User is Logged In -->
             {% if user.is_authenticated %}
+            <!-- Explore Reviews Button (User Logged In) -->
             <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg">Explore Reviews</a>
+            <!-- Meet The Authors button (User Logged In) -->
             <a href="{% url 'authors' %}" class="btn btn-primary btn-lg">Meet the Authors</a>
             {% else %}
+            <!-- Login Button (User Logged Out) -->
             <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Login</a>
+            <!-- Register Button (User Logged Out) -->
             <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Register</a>
             {% endif %}
         </div>
@@ -29,16 +35,23 @@
     <section class="mb-5 review-card">
         <h2 class="mb-4 index-sub">Featured Reviews</h2>
         <div class="row">
+            <!-- Iterates through featured_books list -->
             {% for book in featured_books %}
             <div class="col-md-4">
+                <!-- Review Card -->
                 <div class="card h-100">
                     <div class="card-body text-center">
+                        <!-- Book Title -->
                         <h5 class="card-title home-review-text-title">{{ book.title }}</h5>
+                        <!-- Book Author -->
                         <p class="card-text ">by {{ book.author.name }}</p>
+                        <!-- Book Rating -->
                         <p class="card-text ">
                             <strong>Rating:</strong> {{ book.rating }} / 5
                         </p>
+                        <!-- Reviewed By -->
                         <p class="card-text home-review-text">Reviewer: {{ book.review_author }}</p>
+                        <!-- Read Review button -->
                         <a href="{% url 'book_review' slug=book.slug %}" class="btn btn-primary">Read Review</a>
                     </div>
                 </div>
@@ -53,12 +66,17 @@
     <section class="mb-5 author-card">
         <h2 class="mb-4 index-sub">Meet the Authors</h2>
         <div class="row">
+            <!-- Iterates through the featured-authors list -->
             {% for author in featured_authors %}
             <div class="col-md-3">
+                <!-- Author Card -->
                 <div class="card h-100">
                     <div class="card-body text-center">
+                        <!-- Author Name -->
                         <h5 class="card-title author-text-name">{{ author.name }}</h5>
+                        <!-- Author Writing Genre -->
                         <p class="card-text">{{ author.genre }}</p>
+                        <!-- Read Author Button -->
                         <a href="{% url 'author_bio' slug_author=author.slug_author %}" class="btn btn-primary">View
                             Bio</a>
                     </div>
@@ -73,18 +91,21 @@
     <!-- Call to Action -->
     <section class="text-center">
         <h2 class="index-sub">Add to our Horde!</h2>
+        <!-- Checks if User is logged in -->
         {% if not user.is_authenticated %}
-            <p class="lead">Login or sign up below to add your review to our collection</p>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Sign Up</a>
-            <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Login</a>
+        <p class="lead">Login or sign up below to add your review to our collection</p>
+        <!-- Sign Up Button (User Logged Out) -->
+        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Sign Up</a>
+        <!-- Login Butter (User Logged Out) -->
+        <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Login</a>
         {% else %}
-            <p class="lead">Got more treasure for our halls? What are you waiting for? Write a new review below.<p>
-            <a href="{% url 'new_review' %}" class="btn btn-success btn-lg">Write a Review</a>
-        {% endif %}
-        
+        <p class="lead">Got more treasure for our halls? What are you waiting for? Write a new review below.<p>
+            <!-- Write A Review Button (User Logged In) -->
+                <a href="{% url 'new_review' %}" class="btn btn-success btn-lg">Write a Review</a>
+                {% endif %}
+
     </section>
 </div>
 
 
-<!-- index.html content ends here -->
 {% endblock %}

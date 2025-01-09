@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
-
-
+<!-- Book Review Page -->
+<!-- Masthead -->
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -10,12 +10,14 @@
                 <h1 class="post-title">{{ book.title }}</h1>
                 <!-- Book Author -->
                 <p class="post-subtitle">Written by {{ book.author }}</p>
-                <!-- Publish Details -->
+                <!-- Published Date -->
                 <p class="post-subtitle">Published: {{ book.book_published }}</p>
-                <!-- Edit and Delete Buttons -->
                 <div class="owner-options">
+                    <!-- Checks to see if user is logged in and if so if they are the content creator so they can edit the content -->
                     {% if user.is_authenticated and book.review_author == user %}
+                    <!-- Edit button  -->
                     <a href="{% url 'book_edit' slug=book.slug %}" class="btn btn-edit">Edit</a>
+                    <!-- Delete button calls confirmDelete in the script.js file -->
                     <form action="{% url 'book_delete' slug=book.slug %}" method="POST"
                         onsubmit="return confirmDelete();">
                         {% csrf_token %}
@@ -25,12 +27,13 @@
                 </div>
             </div>
             <div class=" d-md-block col-md-6 masthead-image">
+                <!-- Dragon Reading Image -->
                 <img src="{% static 'images/dragon_reading_min.jpeg' %}" class="scale" alt="placeholder">
             </div>
         </div>
     </div>
 </div>
-
+<!-- Content -->
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">

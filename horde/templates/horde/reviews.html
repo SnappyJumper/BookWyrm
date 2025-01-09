@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% load crispy_forms_tags %}
 {% load static %}
+
+<!-- Reviews Introduction -->
 <div class="text-center intro-reviews">
 
-    <div class="hero_img">
+    <div>
+        <!-- Reading Dragon Image -->
         <img src="{% static 'images/reading_dragon_min.jpeg' %}" class="dragon-guarding">
     </div>
 
@@ -18,29 +20,36 @@
         your next favorite story to add to your personal hoard!
     </p>
 </div>
+
 <div class="container-fluid">
+    <!-- Reviews -->
     <div class="row">
         <h2 class="index-sub">Reviews</h2>
-        <!-- Book Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
+                <!-- If book_list is empty then this text will display instead -->
                 {% if  book_list|length == 0 %}
                 <p>Gasp!! Our treasure is low. Make haste and add a review below!</p>
                 {% else %}
+                <!-- Iterates through book_list -->
                 {% for book in book_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body review-card">
+                            <!-- Book Title -->
                             <a href="{% url 'book_review' book.slug %}" class="link-text">
                                 <h2 class="card-title">{{ book.title }}</h2>
                             </a>
                             <div class="image-container">
+                                <!-- Book Author -->
                                 <div class="image-flash">
                                     <p class="author">Author: {{ book.author }}</p>
                                 </div>
+                                <!-- Reviewer -->
                                 <div class="image-flash">
                                     <p class="author">Reviewed By: {{ book.review_author }}</p>
                                 </div>
+                                <!-- Rating -->
                                 <div class="image-flash">
                                     <p class="author">Rating: {{ book.rating }}/5</p>
                                 </div>
@@ -48,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Applies the row class if the counter is divisable by three -->
                 {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
@@ -55,40 +65,47 @@
                 {% endfor %}
             </div>
             {% endif %}
-
         </div>
     </div>
+    <!-- Displays a nav if the data in Book exceeds the paginated value of 6 so the user can navigate further into Book -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
+            <!-- Next button -->
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></lili>
                 {% endif %}
+                <!-- Prev button -->
                 {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
     {% endif %}
+    <!-- Review Drafts -->
+    <!-- Checks if User is logged in -->
     {% if user.is_authenticated %}
     <div class="text-center">
         <h2 class="index-sub">Your Drafts</h2>
         <ul>
+            <!-- Iterates through object_list -->
             {% for book in object_list %}
+            <!-- If the User is the owner of the review and the review has been saved as a draft -->
             {% if book.status == 0 and book.review_author == user %}
             <li>
+                <!-- Draft Link -->
                 <a href="{% url 'book_review' slug=book.slug %}">{{ book.title }}</a> (Draft)
             </li>
             {% endif %}
             {% endfor %}
         </ul>
         {% endif %}
-
+        
+        <!-- If User is logged in will display Write a Review Button -->
         {% if user.is_authenticated %}
         <a href="{% url 'new_review' %}" class="btn btn-success btn-lg">Write a Review</a>
-
+        {% endif %}
     </div>
-    {% endif %}
 </div>
 
 {% endblock %}

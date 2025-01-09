@@ -3,10 +3,11 @@
 {% block content %}
 {% load static %}
 
-
+<!-- Authors Introduction -->
 <div class="intro-reviews text-center">
 
-    <div class="hero_img">
+    <div>
+        <!-- Author Dragon Image -->
         <img src="{% static 'images/author_dragon_min.jpeg' %}" class="dragon-guarding">
     </div>
 
@@ -20,30 +21,36 @@
     </p>
 </div>
 
-
 <div class="container-fluid">
+    <!-- Authors -->
     <div class="row">
-        <!-- Author Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 <h2 class="index-sub">Authors</h2>
+                <!-- If author_list is empty then this text will display instead -->
                 {% if  author_list|length == 0 %}
-                <p>There are no Author Bios</p>
+                <p>Gasp!! Where have all our Authors Gone? Quickly add one below so our Dragons can admire their work!
+                </p>
                 {% else %}
+                <!-- Iterates through author_list -->
                 {% for author in author_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body review-card">
+                            <!-- Author Name -->
                             <a href="{% url 'author_bio' author.slug_author %}" class="link-text">
                                 <h2 class="card-title">{{ author.name }}</h2>
                             </a>
                             <div class="image-container">
+                                <!-- Author Nationality -->
                                 <div class="image-flash">
                                     <p class="author">Nationality: {{ author.nationality }}</p>
                                 </div>
+                                <!-- Author D.O.B -->
                                 <div class="image-flash">
                                     <p class="author">Born: {{ author.date_of_birth }}</p>
                                 </div>
+                                <!-- Authors Writing Genre -->
                                 <div class="image-flash">
                                     <p class="author">Genre: {{ author.genre }}</p>
                                 </div>
@@ -51,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Applies the row class if the counter is divisable by 3 -->
                 {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
@@ -60,37 +68,45 @@
             {% endif %}
         </div>
     </div>
+    <!-- Displays a nav if the data in Author exceeds the paginated value of 6 so the user can navigate further into Author -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
+            <!-- Next button -->
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></lili>
                 {% endif %}
+                <!-- Prev button -->
                 {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
     {% endif %}
+    <!-- Author Drafts -->
+    <!-- Checks if user is logged in -->
     {% if user.is_authenticated %}
     <div class="text-center">
         <h2 class="index-sub">Your Author Drafts</h2>
         <ul>
+            <!-- Iterates through the author_list -->
             {% for author in object_list %}
+            <!-- If the User is the owner of the bio and the bio has been saved as a draft -->
             {% if author.status == 0 and author.posted_by == user %}
             <li>
+                <!-- Draft Link -->
                 <a href="{% url 'author_bio' slug_author=author.slug_author %}">{{ author.name }}</a> (Draft)
             </li>
             {% endif %}
             {% endfor %}
         </ul>
-
         {% endif %}
 
-
+        <!-- If User is logged in will display Add Author button -->
         {% if user.is_authenticated %}
         <a href="{% url 'new_author' %}" class="btn btn-success btn-lg">Add an Author</a>
         {% endif %}
     </div>
+
 </div>
 {% endblock %}
