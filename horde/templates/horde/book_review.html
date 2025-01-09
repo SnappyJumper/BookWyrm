@@ -16,7 +16,8 @@
                 <div class="owner-options">
                     {% if user.is_authenticated and book.review_author == user %}
                     <a href="{% url 'book_edit' slug=book.slug %}" class="btn btn-edit">Edit</a>
-                    <form action="{% url 'book_delete' slug=book.slug %}" method="POST" onsubmit="return confirmDelete();">
+                    <form action="{% url 'book_delete' slug=book.slug %}" method="POST"
+                        onsubmit="return confirmDelete();">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-delete">Delete</button>
                     </form>
@@ -36,14 +37,17 @@
             <div class="card-body">
                 <!-- The book review content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
+                <h2 class="index-sub">Review</h2>
                 <p class="card-text">
                     {{ book.review | safe }}
                 </p>
             </div>
-            <!-- The details about the reviewer, their overall rating and date they posted the review go in these p tags -->
-            <p>Review by: {{ book.review_author.username }}</p>
-            <p>My Rating (out of 5): {{ book.rating }}</p>
-            <p>{{ book.created_on }}</p>
+            <div class="text-center">
+                <!-- The details about the reviewer, their overall rating and date they posted the review go in these p tags -->
+                <p>Review by: {{ book.review_author.username }}</p>
+                <p>My Rating: {{ book.rating }}/5</p>
+                <p>{{ book.created_on }}</p>
+            </div>
         </div>
     </div>
 </div>

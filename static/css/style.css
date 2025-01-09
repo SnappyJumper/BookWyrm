@@ -395,7 +395,7 @@ main {
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     
 }
 
@@ -461,6 +461,9 @@ main {
        
     }
 
-    
+    .btn-edit {
+        
+    }
+
 }
 
