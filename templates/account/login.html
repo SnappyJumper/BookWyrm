@@ -8,7 +8,7 @@
 <div class="credentials-box text-center">
     <div>
         <!-- Dragon Computer Image -->
-        <img src="{% static 'images/dragon_computer_min.jpeg' %}" class="dragon-computer-img">
+        <img src="{% static 'images/dragon_computer_min.jpeg' %}" class="dragon-computer-img" alt="A dragon sitting at a computer">
     </div>
 
     <!-- Title and Description -->
@@ -32,7 +32,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-signup right" type="submit" aria-label="Submit Button">{% trans "Sign In" %}</button>
             </form>
         </div>
     </div>

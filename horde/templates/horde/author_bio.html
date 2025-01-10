@@ -18,19 +18,19 @@
                     <!-- Checks to see if user is logged in and if so if they are the content creator so they can edit the content -->
                     {% if user.is_authenticated and author.posted_by == user %}
                     <!-- Edit button  -->
-                    <a href="{% url 'author_edit' slug_author=author.slug_author %}" class="btn btn-edit">Edit</a>
+                    <a href="{% url 'author_edit' slug_author=author.slug_author %}" class="btn btn-edit" aria-label="Edit Button">Edit</a>
                     <!-- Delete button calls confirmDelete in the script.js file -->
                     <form action="{% url 'author_delete' slug_author=author.slug_author %}" method="POST"
                         onsubmit="return confirmDelete();">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-delete">Delete</button>
+                        <button type="submit" class="btn btn-delete" aria-label="Delete Button">Delete</button>
                     </form>
                     {% endif %}
                 </div>
             </div>
             <div class="d-md-block col-md-6 masthead-image">
                 <!-- Typewritter Image -->
-                <img src="{% static 'images/default_author_min.jpeg' %}" class="scale-typewritter" alt="placeholder">
+                <img src="{% static 'images/default_author_min.jpeg' %}" class="scale-typewritter" alt="An old typewritter on a desk">
             </div>
         </div>
     </div>

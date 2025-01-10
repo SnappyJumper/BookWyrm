@@ -8,7 +8,7 @@
     <section class="welcome text-center mb-5">
         <div>
             <!-- Dragon Guarding Image -->
-            <img src="{% static 'images/dragon_guarding.jpeg' %}" class="dragon-guarding">
+            <img src="{% static 'images/dragon_guarding.jpeg' %}" class="dragon-guarding" alt="An image of a dragon fiercely guarding books">
         </div>
         <h1 class="display-4 welcome-title">Welcome to BookWyrm!</h1>
         <p class="lead">Behold the Horde! A gleaming sanctuary of literary treasures, fiercely guarded by our mighty
@@ -19,14 +19,14 @@
             <!-- Checks User is Logged In -->
             {% if user.is_authenticated %}
             <!-- Explore Reviews Button (User Logged In) -->
-            <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg">Explore Reviews</a>
+            <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg" aria-label="Reviews Button">Explore Reviews</a>
             <!-- Meet The Authors button (User Logged In) -->
-            <a href="{% url 'authors' %}" class="btn btn-primary btn-lg">Meet the Authors</a>
+            <a href="{% url 'authors' %}" class="btn btn-primary btn-lg" aria-label="Authors Button">Meet the Authors</a>
             {% else %}
             <!-- Login Button (User Logged Out) -->
-            <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Login</a>
+            <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg" aria-label="Login Button">Login</a>
             <!-- Register Button (User Logged Out) -->
-            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Register</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg" aria-label="Register Button">Register</a>
             {% endif %}
         </div>
     </section>
@@ -52,7 +52,7 @@
                         <!-- Reviewed By -->
                         <p class="card-text home-review-text">Reviewer: {{ book.review_author }}</p>
                         <!-- Read Review button -->
-                        <a href="{% url 'book_review' slug=book.slug %}" class="btn btn-primary">Read Review</a>
+                        <a href="{% url 'book_review' slug=book.slug %}" class="btn btn-primary" aria-label="Read Review Button">Read Review</a>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                         <!-- Author Writing Genre -->
                         <p class="card-text">{{ author.genre }}</p>
                         <!-- Read Author Button -->
-                        <a href="{% url 'author_bio' slug_author=author.slug_author %}" class="btn btn-primary">View
+                        <a href="{% url 'author_bio' slug_author=author.slug_author %}" class="btn btn-primary" aria-label="Read Author Button">View
                             Bio</a>
                     </div>
                 </div>
@@ -95,13 +95,13 @@
         {% if not user.is_authenticated %}
         <p class="lead">Login or sign up below to add your review to our collection</p>
         <!-- Sign Up Button (User Logged Out) -->
-        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Sign Up</a>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg" aria-label="Sign Up Button">Sign Up</a>
         <!-- Login Butter (User Logged Out) -->
-        <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Login</a>
+        <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg" aria-label="Sign In Button">Login</a>
         {% else %}
         <p class="lead">Got more treasure for our halls? What are you waiting for? Write a new review below.<p>
             <!-- Write A Review Button (User Logged In) -->
-                <a href="{% url 'new_review' %}" class="btn btn-success btn-lg">Write a Review</a>
+                <a href="{% url 'new_review' %}" class="btn btn-success btn-lg" aria-label="Write Review Button">Write a Review</a>
                 {% endif %}
 
     </section>

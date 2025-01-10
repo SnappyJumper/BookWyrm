@@ -6,7 +6,7 @@
     <div class="the-404-box text-center">
         <div>
             <!-- 404 Image -->
-            <img src="{% static 'images/404.jpeg' %}" class="dragon-404-img">
+            <img src="{% static 'images/404.jpeg' %}" class="dragon-404-img" alt="A confused dragon sits in the snow">
         </div>
         <h1 class="error-heading">404 - The Treasure is Missing!</h1>
         <p class="error-text">
@@ -16,7 +16,7 @@
         <p class="error-text">
             Return to the safety of the horde and perhaps we can recover our losses.
         </p>
-        <a href="{% url 'home' %}" class="btn-home"><i class="fas fa-home"></i> Back to Home</a>
+        <a href="{% url 'home' %}" class="btn-home" aria-label="Home Button"><i class="fas fa-home"></i> Back to Home</a>
     </div>
 
 {% endblock %}

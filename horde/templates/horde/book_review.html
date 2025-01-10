@@ -16,19 +16,19 @@
                     <!-- Checks to see if user is logged in and if so if they are the content creator so they can edit the content -->
                     {% if user.is_authenticated and book.review_author == user %}
                     <!-- Edit button  -->
-                    <a href="{% url 'book_edit' slug=book.slug %}" class="btn btn-edit">Edit</a>
+                    <a href="{% url 'book_edit' slug=book.slug %}" class="btn btn-edit" aria-label="Edit Button">Edit</a>
                     <!-- Delete button calls confirmDelete in the script.js file -->
                     <form action="{% url 'book_delete' slug=book.slug %}" method="POST"
                         onsubmit="return confirmDelete();">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-delete">Delete</button>
+                        <button type="submit" class="btn btn-delete" aria-label="Delete Button">Delete</button>
                     </form>
                     {% endif %}
                 </div>
             </div>
             <div class=" d-md-block col-md-6 masthead-image">
                 <!-- Dragon Reading Image -->
-                <img src="{% static 'images/dragon_reading_min.jpeg' %}" class="scale" alt="placeholder">
+                <img src="{% static 'images/dragon_reading_min.jpeg' %}" class="scale" alt="A closeup image of a dragon reading a book">
             </div>
         </div>
     </div>

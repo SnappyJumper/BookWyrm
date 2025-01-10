@@ -8,7 +8,7 @@
 
     <div>
         <!-- Reading Dragon Image -->
-        <img src="{% static 'images/reading_dragon_min.jpeg' %}" class="dragon-guarding">
+        <img src="{% static 'images/reading_dragon_min.jpeg' %}" class="dragon-guarding" alt="An image of a dragon laying on some pillows while reading a book">
     </div>
 
     <h1 class="welcome-title">Explore our Horde of Reviews</h1>
@@ -73,11 +73,11 @@
         <ul class="pagination justify-content-center">
             <!-- Next button -->
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></lili>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous Page Button">&laquo; PREV</a></lili>
                 {% endif %}
                 <!-- Prev button -->
                 {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next Page Button"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -103,7 +103,7 @@
         
         <!-- If User is logged in will display Write a Review Button -->
         {% if user.is_authenticated %}
-        <a href="{% url 'new_review' %}" class="btn btn-success btn-lg">Write a Review</a>
+        <a href="{% url 'new_review' %}" class="btn btn-success btn-lg" aria-label="Write Review Button">Write a Review</a>
         {% endif %}
     </div>
 </div>

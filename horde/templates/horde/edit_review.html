@@ -16,12 +16,12 @@
     <form id="BookReviewForm" class="form-size" method="post" style="margin-top: 1.3em;">
       {{form | crispy }}
       {% csrf_token %}
-      <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+      <button id="submitButton" type="submit" class="btn btn-signup btn-lg" aria-label="Submit Button">Submit</button>
     </form>
     {% else %}
     <p>Log in to leave a comment</p>
     <!-- Login Button -->
-    <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Login</a>
+    <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg" aria-label="Login Button">Login</a>
     {% endif %}
   </div>
 </div>
