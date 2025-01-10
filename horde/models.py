@@ -8,13 +8,7 @@ STATUS = ((0, "Save as Draft"),(1, "Post"))
 
 class Author(models.Model):
     """
-    Author Model used to build the structure of the Author data within the Database
-
-    Foreign key Relations:
-
-    posted_by has a foreign key relation to the auth.User
-
-    every entry will be related to the auth.User through this Foreign key relation
+    Stores a single Author entry related to :model:`auth.User`
     """
     name = models.CharField(max_length=100, unique=True)
     # slug_author value is used to help identify individual Author instances
@@ -42,15 +36,8 @@ class Author(models.Model):
 
 class Book(models.Model):
     """
-    Book Model used to build the structure of the Book data within the Database
-
-    Foreign key Relations:
-
-    author has a foreign key relation to the Author Model
-
-    review_author has a foreign key relation to the auth.User
-
-    every entry will be related to the auth.User and Author Model through these Foreign key relations
+    Stores a single Author entry related to :model:`auth.User` 
+    and :model:`horde.Author`
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True) # slug value is used to help identify individual Book instances

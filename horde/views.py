@@ -1,7 +1,7 @@
+from django.contrib import messages
 from django.db import models
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.contrib import messages
 from .models import Book, Author
 from .forms import BookReviewForm, AuthorForm
 
@@ -9,14 +9,21 @@ from .forms import BookReviewForm, AuthorForm
 
 def custom_404(request, exception):
     """
-    404 Page View
+    Renders the 404 Page View
     """
     # Render the 404.html template
     return render(request, "horde/404.html", {}, status=404)
 
 class BookList(generic.ListView):
     """
-    Class based view for the reviews page
+    Renders the most recent information from the Book Model and allows 
+    authenticated users to enter them
+    Displays multiple instances of :model:`horde.Book`
+    **Context**
+    ``horde``
+    Instances aranged by title of :model:`horde.Book`
+    **Template**
+    :template:`horde/reviews.html`
     """
     template_name = "horde/reviews.html" # Fetches the template
     paginate_by = 6 # Sets the paginate value so that six reviews display on one page
@@ -37,7 +44,14 @@ class BookList(generic.ListView):
 
 class AuthorList(generic.ListView):
     """
-    Class based view for the authors page
+    Renders the most recent information from the Author Model and allows 
+    authenticated users to enter them
+    Displays multiple instances of :model:`horde.Author`
+    **Context**
+    ``horde``
+    Instances aranged by name of :model:`horde.Author`
+    **Template**
+    :template:`horde/authors.html`
     """
     template_name = "horde/authors.html" # Fetches the template
     paginate_by = 6 # Sets the paginate value so that six authors display on one page
@@ -60,7 +74,17 @@ class AuthorList(generic.ListView):
 
 class HomeBookList(generic.ListView):
     """
-    Class based view for the Home page
+    Renders the most recent information from the Book Model and 
+    Author Model and allows 
+    authenticated users to enter them
+    Displays three instances of :model:`horde.Book`
+    Displays four instances of :model:`horde.Author`
+    **Context**
+    ``horde``
+    Three instances aranged by title of :model:`horde.Book`
+    Four instances arranged by name of :model:`horde.Author`
+    **Template**
+    :template:`horde/index.html`
     """
     queryset = Book.objects.filter(status=1)  # Define the queryset
     template_name = "horde/index.html" # Fetches the template
@@ -80,7 +104,14 @@ class HomeBookList(generic.ListView):
 
 def book_review(request, slug):
     """
-    Displays an individual review :model:'horde.Book'.
+    Renders the most recent information from the Book Model and allows 
+    user collaboration requests
+    Displays an individual instance of :model:`horde.Book`
+    **Context**
+    ``horde``
+    Calls an individual instance of :model:`horde.Book`
+    **Template**
+    :template:`horde/book-review.html`
     """
     # Fetches the object from the Book model using the slug value to identify it
     book = get_object_or_404(Book, slug=slug) 
@@ -97,7 +128,14 @@ def book_review(request, slug):
 
 def author_bio(request, slug_author):
     """
-    Displays an individual :model:'horde.Author'.
+    Renders the most recent information from the Author Model and allows 
+    user collaboration requests
+    Displays an individual instance of :model:`horde.Author`
+    **Context**
+    ``horde``
+    Calls an individual instance of :model:`horde.Author`
+    **Template**
+    :template:`horde/author-bio.html`
     """
     # Fetches the object from the Author model using the slug_author value to identify it
     author = get_object_or_404(Author, slug_author=slug_author)
@@ -115,7 +153,18 @@ def author_bio(request, slug_author):
 
 class AddReview(View):
     """
-    Class based view for adding reviews to the Book Model
+    Renders the form BookReviewForm and allows user collaboration
+    requests
+    Adds an individual entry to :model:`horde.Book`
+    Uses :model:`horde.Author` to do this
+    **Context**
+    ``horde``
+    Creates an individual instance of :model:`horde.Book`
+    Calls the form BookReviewForm
+    User selects an author from the :model:`horde.Author` in the
+    form
+    **Template**
+    :template:`horde/new-review.html`
     """
     template_name = "horde/new_review.html" # Fetches the template 
 
@@ -151,7 +200,19 @@ class AddReview(View):
 
 def book_edit(request, slug):
     """
-    view for editing book reviews
+    Renders the form BookReviewForm for the specified slug value
+    fills it with the relevent content from :model:`horde.Book`
+    and allows user collaboration requests
+    Edits an individual entry to :model:`horde.Book`
+    Calls an instance from :model:`horde.Author`
+    **Context**
+    ``horde``
+    Pulls an individual instance of :model:`horde.Book`
+    Calls the form BookReviewForm and populates it with the data
+    Calls the :model:`horde.Author` if the user wants to change authors
+    Posts the edited version back to :model:`horde.Book`
+    **Template**
+    :template:`horde/edit-review.html`
     """
     book = get_object_or_404(Book, slug=slug) # Book instance is retrieved based on the slug value
 
@@ -175,7 +236,13 @@ def book_edit(request, slug):
 
 def book_delete(request, slug):
     """
-    View for deleting a book review
+    Deletes a specified review from the Book Model
+    Removes an individual entry based on the slug value from :model:`horde.Book`
+    **Context**
+    ``horde``
+    Calls the individual instance from the :model:`horde.Book`
+    **Template**
+    none
     """
     book = get_object_or_404(Book, slug=slug) # Book instance is retrieved based on the slug value
 
@@ -191,7 +258,15 @@ def book_delete(request, slug):
 
 class AddAuthor(View):
     """
-    Class based view for adding an Author to the Author Model
+    Renders the form AuthorForm and allows user collaboration
+    requests
+    Adds an individual entry to :model:`horde.Author`
+    **Context**
+    ``horde``
+    Creates an individual instance of :model:`horde.Author`
+    Calls the form AuthorForm
+    **Template**
+    :template:`horde/new-author.html`
     """
     template_name = "horde/new_author.html" # Fetches the template
 
@@ -228,7 +303,17 @@ class AddAuthor(View):
    
 def author_edit(request, slug_author):
     """
-    view for editing author bios
+    Renders the form AuthorForm for the specified slug_author 
+    value, fills it with the relevent content from :model:`horde.Author`
+    and allows user collaboration requests
+    Edits an individual entry to :model:`horde.Author`
+    **Context**
+    ``horde``
+    Pulls an individual instance of :model:`horde.Author`
+    Calls the form BookReviewForm and populates it with the data
+    Posts the edited version back to :model:`horde.Author`
+    **Template**
+    :template:`horde/edit-author.html`
     """
     author = get_object_or_404(Author, slug_author=slug_author)
 
@@ -253,7 +338,13 @@ def author_edit(request, slug_author):
 
 def author_delete(request, slug_author):
     """
-    view for deleting author bios
+    Deletes a specified author from the Author Model
+    Removes an individual entry based on the slug_author value from :model:`horde.Author`
+    **Context**
+    ``horde``
+    Calls the individual instance from the :model:`horde.Author`
+    **Template**
+    none
     """
 
     author = get_object_or_404(Author, slug_author=slug_author) # Author instance is retrieved based on the slug value

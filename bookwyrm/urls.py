@@ -15,9 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import handler404
-from horde.views import custom_404
 from django.contrib import admin
 from django.urls import path, include
+from horde.views import custom_404
+
 
 handler404 = custom_404 # diverts the 404 to our custom page
 

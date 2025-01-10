@@ -1,6 +1,7 @@
-from .models import Book, Author
-from django_summernote.widgets import SummernoteWidget
 from django import forms
+from django_summernote.widgets import SummernoteWidget
+from .models import Book, Author
+
 
 class BookReviewForm(forms.ModelForm):
     """
