@@ -26,6 +26,13 @@ main {
 .btn {
     margin: 10px;
 }
+
+.alert-error {
+    background-color: #FFD700;
+    color: #4A4A4F;
+    border: 1px solid #FFD700;
+}
+
 /* index.html */
 .dragon-guarding {
     display: block;
