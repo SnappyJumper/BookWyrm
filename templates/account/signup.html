@@ -6,66 +6,79 @@
 
 {% block content %}
 <div class="credentials-box text-center">
-  <div>
-    <!-- Dragon Computer Image -->
-      <img src="{% static 'images/dragon_computer_min.jpeg' %}" class="dragon-computer-img" alt="A dragon at a computer">
-  </div>
+    <div>
+        <!-- Dragon Computer Image -->
+        <img src="{% static 'images/dragon_computer_min.jpeg' %}" class="dragon-computer-img"
+            alt="A dragon at a computer">
+    </div>
 
-  <!-- Title and Description -->
-  <div class="row">
-      <div class="col-md-8 mt-3 offset-md-2">
-          <h3 class="index-sub">{% trans "Sign Up" %}</h3>
-          <p>{% blocktrans %}Already have an account? Then please <a class="link" href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-      </div>
-  </div>
+    <!-- Title and Description -->
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h3 class="index-sub">{% trans "Sign Up" %}</h3>
+            <p>
+                {% blocktrans %}Already have an account? Then please <a class="link" href="{{ login_url }}">sign
+                    in</a>.{% endblocktrans %}
+            </p>
+        </div>
+    </div>
 
-  <!-- Sign Up Form -->
-  <div class="row">
-      <div class="col-md-8 mt-3 offset-md-2">
-        <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
-            {% csrf_token %}
-        
-            <div class="form-group">
-                {{ form.username.label_tag }}
-                {{ form.username }}
-                {% if form.username.help_text %}
-                <p class="form-text text-muted">{{ form.username.help_text }}</p>
+    <!-- Sign Up Form -->
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                    {% if form.username.help_text %}
+                    <p class="form-text text-muted">
+                        {{ form.username.help_text }}
+                    </p>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                    {% if form.email.help_text %}
+                    <p class="form-text text-muted">
+                        {{ form.email.help_text }}
+                    </p>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                    {% if form.password1.help_text %}
+                    <p class="form-text text-muted">
+                        {{ form.password1.help_text }}
+                    </p>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                    {% if form.password2.help_text %}
+                    <p class="form-text text-muted">
+                        {{ form.password2.help_text }}
+                    </p>
+                    {% endif %}
+                </div>
+
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-            </div>
-        
-            <div class="form-group">
-                {{ form.email.label_tag }}
-                {{ form.email }}
-                {% if form.email.help_text %}
-                <p class="form-text text-muted">{{ form.email.help_text }}</p>
-                {% endif %}
-            </div>
-        
-            <div class="form-group">
-                {{ form.password1.label_tag }}
-                {{ form.password1 }}
-                {% if form.password1.help_text %}
-                <p class="form-text text-muted">{{ form.password1.help_text }}</p>
-                {% endif %}
-            </div>
-        
-            <div class="form-group">
-                {{ form.password2.label_tag }}
-                {{ form.password2 }}
-                {% if form.password2.help_text %}
-                <p class="form-text text-muted">{{ form.password2.help_text }}</p>
-                {% endif %}
-            </div>
-        
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-        
-            <button class="btn btn-signup right" type="submit" aria-label="Sign Up Button">{% trans "Sign Up" %} &raquo;</button>
-        </form>
-        
-      </div>
-  </div>
+
+                <button class="btn btn-signup right" type="submit" aria-label="Sign Up Button">{% trans "Sign Up" %}
+                    &raquo;</button>
+            </form>
+
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
