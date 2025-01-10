@@ -113,6 +113,10 @@ main {
     color: #FFD700;
 }
 
+.draft-list {
+    list-style-type: none;
+}
+
 
 /* login and signup html */
 

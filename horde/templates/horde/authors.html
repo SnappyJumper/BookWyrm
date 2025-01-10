@@ -74,11 +74,11 @@
         <ul class="pagination justify-content-center">
             <!-- Next button -->
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous Page Button">&laquo; PREV</a></lili>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary" aria-label="Previous Page Button">&laquo; PREV</a></lili>
                 {% endif %}
                 <!-- Prev button -->
                 {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next Page Button"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary" aria-label="Next Page Button"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -88,7 +88,7 @@
     {% if user.is_authenticated %}
     <div class="text-center">
         <h2 class="index-sub">Your Author Drafts</h2>
-        <ul>
+        <ul class="draft-list">
             <!-- Iterates through the author_list -->
             {% for author in object_list %}
             <!-- If the User is the owner of the bio and the bio has been saved as a draft -->

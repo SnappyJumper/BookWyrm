@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const titleField = document.getElementById("id_title"); // assigns title to titleField
     const slugField = document.getElementById("id_slug"); // assigns slug to slugField
     const nameField = document.getElementById("id_name"); // assigns name to nameField
-    const slugAuthorField = document.getElementById("id_slug_author") //assigns slug_author to slugAuthorField
+    const slugAuthorField = document.getElementById("id_slug_author"); //assigns slug_author to slugAuthorField
 
     // For Book
     if (titleField && slugField) {

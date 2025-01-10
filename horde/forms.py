@@ -7,6 +7,9 @@ class BookReviewForm(forms.ModelForm):
     The form class for the Book Model
     """
     class Meta:
+        """
+        Configuration for the BookReviewForm
+        """
         model = Book # Sets the model to Book
         fields = "__all__" # Retrieves all the fields from Book
         exclude = ["review_author"]  # Exclude review_author from the form
@@ -26,6 +29,9 @@ class AuthorForm(forms.ModelForm):
     The form class for the Author Model
     """
     class Meta:
+        """
+        Configuration for the AuthorForm
+        """
         model = Author # Sets the model to Author
         fields = "__all__" # Retrieves all the fields from Author
         exclude = ["posted_by"] # Excludes posted_by from the form

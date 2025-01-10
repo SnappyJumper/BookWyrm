@@ -66,6 +66,9 @@ class HomeBookList(generic.ListView):
     template_name = "horde/index.html" # Fetches the template
 
     def get_context_data(self, **kwargs):
+        """
+        Fetches the data from the database
+        """
         context = super().get_context_data(**kwargs)
         # displays 3 published reviews on the home page
         context["featured_books"] = Book.objects.filter(status=1)[:3]
