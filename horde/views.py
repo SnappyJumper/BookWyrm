@@ -86,7 +86,7 @@ def book_review(request, slug):
     book = get_object_or_404(Book, slug=slug) 
 
     if book.status == 0 and book.review_author != request.user:
-        messages.info(request, "You are not authorized to view this draft.")
+        messages.error(request, "You are not authorized to view this draft.")
         return redirect("home")  # Redirect unauthorized users to the home page
 
     return render(
@@ -104,7 +104,7 @@ def author_bio(request, slug_author):
 
     # Check if the author bio is a draft and if the user is not the creator
     if author.status == 0 and author.posted_by != request.user:
-        messages.info(request, "You are not authorized to view this draft.")
+        messages.error(request, "You are not authorized to view this draft.")
         return redirect("home")  # Redirect unauthorized users to the home page
 
     return render(
@@ -125,7 +125,7 @@ class AddReview(View):
         """
         if not request.user.is_authenticated:
             # Add a message before redirecting
-            messages.info(request, "You must be logged in to add, edit or delete content.")
+            messages.error(request, "You must be logged in to add, edit or delete content.")
             return redirect("account_login") # Redirects to login
 
         form = BookReviewForm()
@@ -137,7 +137,7 @@ class AddReview(View):
         """
         if not request.user.is_authenticated:
             # Add a message before redirecting
-            messages.info(request, "You must be logged in to add, edit or delete content.")
+            messages.error(request, "You must be logged in to add, edit or delete content.")
             return redirect("account_login") # Redirects to login
 
         form = BookReviewForm(request.POST)
@@ -145,7 +145,7 @@ class AddReview(View):
             review = form.save(commit=False) # Prevents the now saved form from committing
             review.review_author = request.user  # Set the logged-in user as the review_author
             review.save() # Saved form is then allowed to commit
-            messages.info(request, "Review added successfully.")
+            messages.success(request, "Review added successfully.")
             return redirect(reverse("reviews")) 
         return render(request, self.template_name, {"form": form})
 
@@ -157,7 +157,7 @@ def book_edit(request, slug):
 
     # If an unauthorised user attempts to navigate directly to the book edit url they are redirected
     if request.user != book.review_author:
-        messages.info(request, "You are not authorized to edit this content.")
+        messages.error(request, "You are not authorized to edit this content.")
         return redirect("home")
 
     # If the edit is posted then the book is updated otherwise it is left untouched
@@ -165,7 +165,7 @@ def book_edit(request, slug):
         form = BookReviewForm(request.POST, instance=book) # sets the form content to that of the book instance
         if form.is_valid():
             form.save()
-            messages.info(request, "Review updated successfully.")
+            messages.success(request, "Review updated successfully.")
             return redirect("book_review", slug=book.slug)
     else:
         form = BookReviewForm(instance=book)
@@ -182,10 +182,10 @@ def book_delete(request, slug):
     # If the User is the owner of the book review then the book is deleted otherwise they are redirected back to reviews
     if book.review_author == request.user:
         book.delete()
-        messages.info(request, "Review successfully Deleted!")
+        messages.success(request, "Review successfully Deleted!")
     else:
         # Add a message before redirecting
-        messages.info(request, "You are not authorised to delete this content.")
+        messages.error(request, "You are not authorised to delete this content.")
             
     return redirect("reviews")
 
@@ -201,7 +201,7 @@ class AddAuthor(View):
         """
         if not request.user.is_authenticated:
             # Add a message before redirecting
-            messages.info(request, "You must be logged in to add, edit or delete content.")
+            messages.error(request, "You must be logged in to add, edit or delete content.")
             return redirect("account_login") # Redirects to login
 
         form = AuthorForm()
@@ -213,7 +213,7 @@ class AddAuthor(View):
         """
         if not request.user.is_authenticated:
             # Add a message before redirecting
-            messages.info(request, "You must be logged in to add, edit or delete content.")
+            messages.error(request, "You must be logged in to add, edit or delete content.")
             return redirect("account_login") # Redirects to login
 
         form = AuthorForm(request.POST)
@@ -221,7 +221,7 @@ class AddAuthor(View):
             author = form.save(commit=False) # Prevents the now saved form from committing
             author.posted_by = request.user # Set logged in User as the posted_by
             form.save() # Saved form is then allowed to commit
-            messages.info(request, "Author added successfully.")
+            messages.success(request, "Author added successfully.")
             return redirect(reverse("authors"))
         return render(request, self.template_name, {"form": form})
 
@@ -234,7 +234,7 @@ def author_edit(request, slug_author):
 
     # If an unauthorised user attempts to navigate directly to the edit author url they are redirected home
     if request.user != author.posted_by:
-        messages.info(request, "You are not authorized to edit this author.")
+        messages.error(request, "You are not authorized to edit this author.")
         return redirect("home")
 
     # If the edit is posted then the author is updated otherwise it is left untouched
@@ -242,7 +242,7 @@ def author_edit(request, slug_author):
         form = AuthorForm(request.POST, instance=author) # sets the form content to that of the author instance
         if form.is_valid():
             form.save()
-            messages.info(request, "Author updated successfully.")
+            messages.success(request, "Author updated successfully.")
             return redirect("author_bio", slug_author=author.slug_author)
 
     else:
@@ -261,10 +261,10 @@ def author_delete(request, slug_author):
     # If the User is the owner of the Author Bio then it is deleted otherwise they are redirected back to authors
     if author.posted_by == request.user:
         author.delete()
-        messages.info(request, "Author successfully Deleted!")
+        messages.success(request, "Author successfully Deleted!")
     else:
         # Add a message before redirecting
-        messages.info(request, "You are not authorised to delete this content.")
+        messages.error(request, "You are not authorised to delete this content.")
 
     return redirect("authors")
 

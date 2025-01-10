@@ -9,16 +9,24 @@ STATUS = ((0, "Save as Draft"),(1, "Post"))
 class Author(models.Model):
     """
     Author Model used to build the structure of the Author data within the Database
+
+    Foreign key Relations:
+
+    posted_by has a foreign key relation to the auth.User
+
+    every entry will be related to the auth.User through this Foreign key relation
     """
     name = models.CharField(max_length=100, unique=True)
-    slug_author = models.SlugField(max_length=100, unique=True) # slug_author value is used to help identify individual Author instances
+    # slug_author value is used to help identify individual Author instances
+    slug_author = models.SlugField(max_length=100, unique=True) 
     date_of_birth = models.DateField()
     nationality = models.CharField(max_length=100)
     genre = models.CharField(max_length=50)
     favourite_book = models.CharField(max_length=200)
     bio = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
-    posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author_bios") # Foreign Key which links the Author Model to the User 
+    # Foreign Key which links the Author Model to the User 
+    posted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author_bios") 
 
     class Meta:
         """
@@ -35,6 +43,14 @@ class Author(models.Model):
 class Book(models.Model):
     """
     Book Model used to build the structure of the Book data within the Database
+
+    Foreign key Relations:
+
+    author has a foreign key relation to the Author Model
+
+    review_author has a foreign key relation to the auth.User
+
+    every entry will be related to the auth.User and Author Model through these Foreign key relations
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True) # slug value is used to help identify individual Book instances

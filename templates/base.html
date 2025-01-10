@@ -14,9 +14,9 @@
     <title>BookWyrm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--Meta tags for search engines-->
-    <meta name="description" content="BookWyrm! A site to read and post reviews of your favourite books and look up your favourite authors">
-    <meta name="keywords"
-        content="books, reviews, authors, dragons, hatchling, horde, bio">
+    <meta name="description"
+        content="BookWyrm! A site to read and post reviews of your favourite books and look up your favourite authors">
+    <meta name="keywords" content="books, reviews, authors, dragons, hatchling, horde, bio">
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,8 +88,9 @@
         {% if messages %}
         <div class="container mt-3">
             {% for message in messages %}
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
                 {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             {% endfor %}
         </div>
