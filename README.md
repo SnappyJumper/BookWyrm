@@ -38,6 +38,7 @@ Visit the deployed site [here](https://bookwyrm-f93c738e909e.herokuapp.com/)
     12. [Delete Author Prompt](#delete-author-prompt)
     13. [Authentication Pages](#authentication-pages)
     14. [404 Page](#404-page)
+    15. [Base Template Messages](#base-template-messages)
 3. [Technologies Used](#technologies-used)
     1. [Languages Used](#languages-used)
     2. [Libraries and Frameworks](#libraries-and-frameworks)
@@ -374,7 +375,146 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 
 * Edit Review Form:
 
-    Desktop:
-    ![]
+    * Desktop:
+    ![Edit Review Form Desktop](assets/readme_files/edit_review_form_desktop.png)
+
+    * Mobile:
+    ![Edit Review Form Mobile](assets/readme_files/edit_review_form_mobile.png)
+
+    * Renders a responsive form for the logged in and authenticated User. It is pre-filled with the content being edited.
+
+### Delete Review Prompt
+
+* Delete Prompt:
+
+    * Prompt:
+    ![Review Delete Prompt](assets/readme_files/review_delete_prompt.png)
+
+    * Calls a JavaScript function which displays a confirmation prompt before deletion.
+
+    * Prevents accidental deletion and improves User
+    experience.
+
+### Add Author Page
+
+* Add Author Form:
+
+    * Desktop:
+    ![Add Author Page Desktop](assets/readme_files/add_author_page_desktop.png)
+
+    * Mobile:
+    ![Add Author Page Mobile](assets/readme_files/add_author_page_mobile.png)
+
+    * Renders a responsive form for the logged in User to add their own author bio to the site.
+
+### Edit Author Page
+
+* Edit Author Form
+
+    * Desktop:
+    ![Edit Author Page Desktop](assets/readme_files/edit_author_page_desktop.png)
+
+    * Mobile:
+    ![Edit Author Page Mobile](assets/readme_files/edit_author_page_mobile.png)
+
+    * Renders a responsive form for the logged in and authenticated User. It is pre-filled with the content being edited.
+
+### Delete Author Prompt
+
+* Delete Prompt:
+
+    * Prompt:
+    ![Delete Author Prompt](assets/readme_files/author_delete_prompt.png)
+
+    * Calls a JavaScript function which displays a confirmation prompt before deletion.
+
+    * Prevents accidental deletion and improves User
+    experience.
+
+### Authentication Pages
+
+Page | Purpose | Image
+--- | --- | ---
+Login | Allows registered User to login to account on site. | ![Login Page](assets/readme_files/login_page.png) 
+Sign Up | Allows un-registered Users to create an account on the site. | ![Sign Up Page](assets/readme_files/sign_up_page.png)
+Logout | Allows registered Users to log out of their accounts. | ![Loggout Page](assets/readme_files/sign_out_page.png)
+
+### 404 Page
+
+* Custom 404 Page:
+
+    * Page:
+    ![404 Page](assets/readme_files/custom_404_page.png)
+
+    * A custom 404 page to suit the theme.
+
+    * Has a Home button to redirect lost Users back to safety.
+
+### Base Template Messages
+
+* The base.html file, from which all templates inherit from, contains a place for messages. These messages are success and error messages depending on the action that a user is trying to perform. See some examples in the table below.
+
+Action | Resulting Message
+--- | ---
+Successfully Login | ![Login Succesful](assets/readme_files/success_login.png)
+Successfully Logout | ![Logout Successful](assets/readme_files/success_logout.png)
+Successfully Post Content | ![Post Successful](assets/readme_files/success_posting.png)
+Unauthorised Access To Edit | ![Edit Access Denied](assets/readme_files/unauthorised_editing.png)
+Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unauthorised_viewing.png)
+
+* The success messages help Users to confirm that what they have just done has been applied.
+
+* The error messages inform unauthorised users why they have been diverted away from the content they were trying to reach.
+
+* These messages are both informing and improve the experience of the User.
+
+
+## Technologies Used
+
+### Languages Used
+
+* [HTML5](https://en.wikipedia.org/wiki/HTML)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+
+### Libraries and Frameworks
+
+* [Django](https://www.djangoproject.com/)   
+    * Django was used as web framework.
+
+* [Django Template](https://jinja.palletsprojects.com)  
+    * Django Template was used as a templating language for Django to display backend data to HTML.
+   
+* [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)  
+    * Bootstrap 5 was used throughout the website to help with styling and responsiveness.
+
+* [Google Fonts](https://fonts.google.com)  
+    * Google fonts was used to import the fonts into the html file, and were used on all parts of the site.
+
+* [Font Awesome](https://fontawesome.com)  
+    * Font Awesome was used throughout the website to add icons for aesthetic and UX purposes. 
+
+
+### Packages / Dependencies Installed
+
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)  
+    * Django Allauth was used for user authentication, registration, and account management.
+
+* [Django Crispy Form](https://django-crispy-forms.readthedocs.io/en/latest/)   
+    * Django Crispy Form was used to control the rendering of the forms. 
+ 
+* [Gunicorn](https://gunicorn.org/)  
+    * Gunicorn was used as Python WSGI HTTP Server for UNIX to support the deployment of Django application.  
+
+* [Summernote](https://summernote.org/) 
+    * Summernote has been used to provide rich text content to the admin and User.
+
+* [Dj-database-url](https://pypi.org/project/dj-database-url/) and [Psycopg2](https://pypi.org/project/psycopg2/)
+    * They both were used to help connect the database.
+
+* [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/)
+    * Used to serve Static files for Heroku
 
 

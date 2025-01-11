@@ -39,5 +39,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Called by the Delete button to delete Reviews and Authors from the database
 function confirmDelete() {
-    return confirm("Are you sure you want to delete this review? This action cannot be undone.");
+    return confirm("Are you sure you want to delete this content? This action cannot be undone.");
 }
