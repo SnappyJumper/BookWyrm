@@ -19,13 +19,12 @@ from django.contrib import admin
 from django.urls import path, include
 from horde.views import custom_404
 
-
-handler404 = custom_404 # diverts the 404 to our custom page
+handler404 = custom_404  # diverts the 404 to our custom page
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path("summernote/", include('django_summernote.urls')),
-    path("", include("horde.urls"), name="horde-urls"), # links up the horde urls to the bookwyrm project
+    # links up the horde urls to the bookwyrm project
+    path("", include("horde.urls"), name="horde-urls"),
 ]
-

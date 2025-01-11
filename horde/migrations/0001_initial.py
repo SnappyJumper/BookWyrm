@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Author',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100, unique=True)),
                 ('slug_author', models.SlugField(max_length=100, unique=True)),
                 ('date_of_birth', models.DateField()),
@@ -25,7 +26,9 @@ class Migration(migrations.Migration):
                 ('genre', models.CharField(max_length=50)),
                 ('favourite_book', models.CharField(max_length=200)),
                 ('bio', models.TextField()),
-                ('posted_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='author_bios', to=settings.AUTH_USER_MODEL)),
+                ('posted_by', models.ForeignKey(on_delete=django.db.models.
+                 deletion.CASCADE, related_name='author_bios',
+                 to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['name'],
@@ -34,17 +37,26 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Book',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                 serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=200, unique=True)),
                 ('slug', models.SlugField(max_length=200, unique=True)),
                 ('genre', models.CharField(max_length=50)),
                 ('book_published', models.DateField()),
                 ('review', models.TextField()),
-                ('rating', models.IntegerField(choices=[(0, '1-5'), (1, 'One Star'), (2, 'Two Star'), (3, 'Three Star'), (4, 'Four Star'), (5, 'Five Star')], default=0)),
-                ('status', models.IntegerField(choices=[(0, 'Save as Draft'), (1, 'Post')], default=0)),
+                ('rating', models.IntegerField(choices=[(0, '1-5'),
+                 (1, 'One Star'), (2, 'Two Star'), (3, 'Three Star'),
+                 (4, 'Four Star'), (5, 'Five Star')], default=0)),
+                ('status', models.IntegerField(choices=[(0, 'Save as Draft'),
+                 (1, 'Post')], default=0)),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('author', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='horde.author')),
-                ('review_author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='book_reviews', to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(null=True,
+                 on_delete=django.db.models.deletion.SET_NULL,
+                 to='horde.author')),
+                ('review_author', models.ForeignKey
+                    (on_delete=django.db.models.deletion.CASCADE,
+                     related_name='book_reviews',
+                     to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['title'],

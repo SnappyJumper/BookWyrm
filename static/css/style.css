@@ -283,7 +283,13 @@ main {
 }
 
 .form-size {
-    padding:0 200px;
+    padding:10px 10px;
+}
+
+.summernote-div iframe {
+    width: 100% !important; /* Make Summernote iframe fit the container */
+    height: auto !important;
+    min-height: 200px; /* Minimum height for better usability */
 }
 
 /* 404.html */
@@ -446,5 +452,17 @@ main {
        
     }
 
+    /* form pages */
+    .form-size {
+        padding:10px 100px;
+    }
+
+}
+/*Media query for large screens (1500px and up)*/
+@media screen and (min-width: 1500px) {
+    /* form pages */
+    .form-size {
+        padding:10px 300px;
+    }
 }
 
