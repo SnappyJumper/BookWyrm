@@ -690,7 +690,7 @@ Page | Desktop | Mobile |
 * A known issue with Summernote field validation is present in the project. 
 
 * There is a warning in the css validation:
-    * ![CSS Warning](assets/testing_files/validation/css_warnings.png
+    * ![CSS Warning](assets/testing_files/validation/css_warnings.png)
 
     * The warning is for a package I dont have access to as they are never used in my Styles sheet.
 
