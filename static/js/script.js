@@ -41,3 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function confirmDelete() {
     return confirm("Are you sure you want to delete this review? This action cannot be undone.");
 }
+
+document.querySelector("form").addEventListener("submit", function () {
+    this.querySelector("button[type='submit']").disabled = true;
+});
