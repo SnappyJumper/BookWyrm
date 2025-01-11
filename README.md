@@ -647,3 +647,63 @@ Page | Desktop | Mobile |
 | Login | ![Desktop Loggin Page](assets/readme_files/login_page_desktop.png) | ![Mobile Login Page](assets/readme_files/login_page_mobile.png) |
 | Sign Out | ![Desktop Signout Page](assets/readme_files/logout_page_desktop.png) | ![Mobile Signout Page](assets/readme_files/logout_page_mobile.png) |
 | Custom 404 | ![Desktop 404 Page](assets/readme_files/custom_404_page_desktop.png) | ![Mobile 404 Page](assets/readme_files/custom_404_page_mobile.png) |
+
+
+[Back to top ⇧](#bookwyrm)
+
+## Credits
+
+### Content
+
+* Website content was written by the developer
+
+* Example Reviews and bios were written by the developer.
+
+### Media
+
+* All images were taken from the free trial of [Adobe Stock](https://stock.adobe.com/ie/)
+
+    * Home Page Image by [DigitalArt Max](https://stock.adobe.com/ie/contributor/211689679/digitalart-max?load_type=author&prev_url=detail)
+
+    * Reviews Page Image by [Ahsan](https://stock.adobe.com/ie/contributor/211515629/ahsan?load_type=author&prev_url=detail)
+
+    * Authors Page Image by [Nafiz](https://stock.adobe.com/ie/contributor/210845326/nafiz?load_type=author&prev_url=detail)
+
+    * Review Page Image by [Chawakorn](https://stock.adobe.com/ie/contributor/211758357/chawakorn?load_type=author&prev_url=detail)
+
+    * Author Bio Page Image by [Sekai](https://stock.adobe.com/ie/contributor/211450080/sekai?load_type=author&prev_url=detail)
+
+    * Signup and Login Page image by [Ro](https://stock.adobe.com/ie/contributor/212219864/ro?load_type=author&prev_url=detail)
+
+    * Signout Image by [Dareeul](https://stock.adobe.com/ie/contributor/212289152/dareeul?load_type=author&prev_url=detail)
+
+### Code
+
+* [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/) were consulted throughout the length of this project for inspiration and help understanding the code.
+
+* [Code Institute](https://codeinstitute.net/)'s "I think therefore I blog" project for basic structure when implementing the python code initially.
+
+[Back to top ⇧](#bookwyrm)
+
+## Known Bugs
+
+* A known issue with Summernote field validation is present in the project. 
+
+* There is a warning in the css validation:
+    * ![CSS Warning](assets/testing_files/validation/css_warnings.png
+
+    * The warning is for a package I dont have access to as they are never used in my Styles sheet.
+
+[Back to top ⇧](#bookwyrm)
+
+## Acknowledgements
+
+* My partner, for her unconditional love and steady supply of tea and bacon sandwiches whilst writting this readme file.
+
+* My family and friends, for their continued love and support.
+
+* My mentor, Marcel, for his invaluable support and feed back throughout this course, answering Slack messages at the craziest times of day so I dont have a breakdown, I would be lost without him.
+
+* To Code Institute and its amazing Slack community, giving me the tools to change my career and improve my quality of life.
+
+[Back to top ⇧](#bookwyrm)
