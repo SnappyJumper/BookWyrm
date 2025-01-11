@@ -468,6 +468,7 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
 
 * These messages are both informing and improve the experience of the User.
 
+[Back to top ⇧](#bookwyrm)
 
 ## Technologies Used
 
@@ -517,4 +518,132 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
 * [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/)
     * Used to serve Static files for Heroku
 
+### Database Management
 
+* [Code Institute PostgreSQL](https://dbs.ci-dbs.net/)
+    * Used to manage my database supplied by Code Institute
+
+### Tools and Programs
+
+* [Git](https://git-scm.com)  
+    * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub. 
+
+* [GitPod Enterprise](https://gitpod.io/)
+     * GitPod Enterprise was used for writing code, committing, and then pushing to GitHub.
+
+* [GitHub](https://github.com)  
+   GitHub was used to store the projects code after being pushed from Git. 
+
+* [Heroku](https://www.heroku.com)   
+    * Heroku was used to deploy the website.
+
+* [Coolors](https://coolors.co)  
+    * Coolors was used to create a color scheme for the website.
+
+* [Image Compressor](https://imagecompressor.com/)    
+    * Image Compressor was used to reduce the file size of the images.
+
+* [Balsamiq](https://balsamiq.com/)
+     * Balsamiq was used to create the wireframes during the design phase of the project
+
+* [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
+    * Chrome DevTools was used during development process for code review and to test responsiveness.
+
+* [W3C Markup Validator](https://validator.w3.org/)
+    * W3C Markup Validator was used to validate the HTML code.
+
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+    * W3C CSS Validator was used to validate the CSS code.
+
+* [JSHint](https://jshint.com/) 
+    * The JSHints JavaScript Code Quality Tool was used to validate the site's JavaScript code.
+
+* [CI Python Linter](https://pep8ci.herokuapp.com/) and [Pylint](https://pypi.org/project/pylint/)
+    * The CI Python Linter and Pylint were used to help validate the Python code.
+
+* [miro](https://miro.com/)
+    * Miro was used to visualise the website flow.
+
+* [drawsql](https://drawsql.app/)
+    * Drawsql was used to visualise the database models.
+
+* [Favicon.cc](https://www.favicon.cc/) 
+    * Favicon.cc was used for icons on the site.
+
+[Back to top ⇧](#bookwyrm)
+
+
+## Testing 
+
+All testing documentation can be found [here](https://github.com/SnappyJumper/BookWyrm/blob/main/TESTING.md#bookwyrm-testing)
+
+[Back to top ⇧](#bookwyrm)
+
+
+## Deployment
+
+This project was developed using a [GitPod](https://gitpod.io/) Enterprise workspace. The code was commited to [Git](https://git-scm.com/) and pushed to [GitHub](https://github.com/") using terminal commands.
+
+## Deploying on Heroku
+To deploy this project to Heroku from its GitHub repository, the following guidelines were followed:
+
+1. Login to your account:
+    - Select login and fill in your details.
+    - Navigate to the apps page.
+
+2. Create the Heroku App:
+    - Select "Create new App" from the "New" dropdown on the top right of the screen. 
+    - Choose a name for your app and select your location.
+
+3. Set the CONFIG VARS:
+    - Once the app is loaded click the settings tab.
+    - Click Reveal Config Vars.
+    - Set The following keys and values:
+    KEY | Value
+    --- | ---
+    DATABASE_URL | "URL Provided by Code Institute PostgreSQL"
+    SECRET_KEY | "Your Django Projects Secret key value"
+ 
+4. Prepare the environment and settings.py file:
+    - In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
+    - In your GitPod workspace, create an env.py file in the main directory. 
+    - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+    - Add the SECRET_KEY value to the Config Vars in Heroku.
+    - Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
+    - In settings.py add the following sections:
+        - STATICFILE_STORAGE
+        - STATICFILES_DIRS
+        - STATIC_ROOT
+        - MEDIA_URL
+        - DEFAULT_FILE_STORAGE
+        - TEMPLATES_DIR
+        - Update DIRS in TEMPLATES with TEMPLATES_DIR
+        - Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+
+5. Collect Static Files and Deploy to Heroku:
+    - Type python3 manage.py collectstatic into the terminal.
+    - Create a "Procfile" in the main directory and add the following line:
+        - web: gunicorn bookwyrm.wsgi
+    - Go to the deploy tab and connect heroku to your projects GitHub repository.
+    - Click on deploy branch and wait until the build is complete. Once complete the app can then be accesed via the view button.
+
+[Back to top ⇧](#bookwyrm)
+
+
+## Finished Product
+
+Page | Desktop | Mobile |
+--- | --- | --- |
+| Home | ![Desktop Home Page image](assets/readme_files/desktop_home.png) | ![Mobile Home Page image](assets/readme_files/desktop_mobile.png) |
+| Reviews | ![Desktop Reviews Page](assets/readme_files/reviews_desktop.png) | ![Mobile Reviews image](assets/readme_files/reviews_mobile.png) |
+| Authors | ![Desktop Authors Page](assets/readme_files/authors_desktop.png) | ![Mobile Authors image](assets/readme_files/authors_mobile.png) |
+| Review | ![Desktop Review Page](assets/readme_files/review_desktop.png) | ![Mobile Review Page](assets/readme_files/review_mobile.png) |
+| Author Bio | ![Desktop Author Bio Page](assets/readme_files/author_bio_desktop.png) | ![Mobile Author Bio Page](assets/readme_files/author_bio_mobile.png) |
+| Add Review | ![Desktop Add Review Page](assets/readme_files/add_book_review_desktop.png) | ![Mobile Add Review Page](assets/readme_files/add_book_review_mobile.png) |
+| Add Author | ![Desktop Add Author](assets/readme_files/add_author_desktop.png) | ![Mobile Add Author Page](assets/readme_files/add_author_mobile.png) |
+| Edit Review | ![Desktop Edit Review Page](assets/readme_files/edit_review_desktop.png) | ![Mobile Edit Review Page](assets/readme_files/edit_review_mobile.png) |
+| Edit Author | ![Desktop Edit Author Page](assets/readme_files/edit_author_desktop.png) | ![Mobile Edit Author Page](assets/readme_files/edit_author_mobile.png) |
+| Signup | ![Desktop Signup Page](assets/readme_files/signup_page_desktop.png) | ![Mobile Signup Page](assets/readme_files/signup_page_mobile.png) |
+| Login | ![Desktop Loggin Page](assets/readme_files/login_page_desktop.png) | ![Mobile Login Page](assets/readme_files/login_page_mobile.png) |
+| Sign Out | ![Desktop Signout Page](assets/readme_files/logout_page_desktop.png) | ![Mobile Signout Page](assets/readme_files/logout_page_mobile.png) |
+| Custom 404 | ![Desktop 404 Page](assets/readme_files/custom_404_page_desktop.png) | ![Mobile 404 Page](assets/readme_files/custom_404_page_mobile.png) |
