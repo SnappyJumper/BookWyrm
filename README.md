@@ -626,10 +626,8 @@ To deploy this project to Heroku from its GitHub repository, the following guide
     - Once the app is loaded click the settings tab.
     - Click Reveal Config Vars.
     - Set The following keys and values:
-    KEY | Value
-    --- | ---
-    DATABASE_URL | "URL Provided by Code Institute PostgreSQL"
-    SECRET_KEY | "Your Django Projects Secret key value"
+        - DATABASE_URL = "URL Provided by Code Institute PostgreSQL"
+        - SECRET_KEY = "Your Django Projects Secret key value"
  
 4. Prepare the environment and settings.py file:
     - In the Settings tab, click on Reveal Config Vars and copy the URL next to DATABASE_URL.
