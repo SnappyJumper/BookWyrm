@@ -4,11 +4,11 @@
 ![BookWyrm mockup image](assets/readme_files/mockup_img.png)
 
 
-BookWyrm is a website created for avid readers to post and share information about their favourite books and authors. All under the protection of dragons.
+BookWyrm is a website for avid readers to post and share information about their favorite books and authors, all under the protection of dragons.
 
 The main objective of the site is to create a space where users can share the stories and authors they love with a wider community. This is achieved through the publishing of reviews and author bios.
 
-Visit the deployed site [here](https://bookwyrm-f93c738e909e.herokuapp.com/)
+Visit the deployed site [here](https://bookwyrm-f93c738e909e.herokuapp.com/).
 
 
 ## Table of Contents
@@ -51,7 +51,7 @@ Visit the deployed site [here](https://bookwyrm-f93c738e909e.herokuapp.com/)
 6. [Finished Product](finished-product)
 7. [Credits](#credits)
 8. [Known Bugs](#known-bugs)
-9. [Acknowledgements](#acknowledgements)
+9. [Acknowledgments](#acknowledgments)
 
 
 ***
@@ -63,28 +63,30 @@ Visit the deployed site [here](https://bookwyrm-f93c738e909e.herokuapp.com/)
 
 ### Project Goals
 
-* The website contains rich colors to go with the theme of dragons, whilst also not drawing away from the content too much.
+* The website contains rich colors to go with the theme of dragons, whilst not drawing away from the content too much.
 
-* It has a responsive design so its accessable across a range of screen sizes.
+* It has a responsive design so it's accessible over a range of screen sizes.
 
-* Structure is easy to navigate and understand.
+* The structure is easy to navigate and understand.
 
-* Site Users can login or register to fully interact with the site contents.
+* Site Users can log in or register for full interaction with the site contents.
 
 * Site Users can leave reviews about the authors posted on the site.
 
-* Site Users can add bios about their favourite authors and post them to the site.
+* Site Users can add bios about their favorite authors and post them to the site.
 
 
 ### User Goals
 
-* As a Site Admin, I want to be able to manage the content of the site.
+* As a Site Admin, I want to be able to manage the content of the site, leaving comments and sharing my rating of the content.
 
 * As a Site User, I want to be able to interact with the content on the site.
 
 * As a Site User, I want the information provided by the site to be simple to understand and easy to navigate.
 
 * As a Site User, I want to be able to create and manage my content.
+
+* As a Site User, I want to be able to save my content as a draft before publishing it to the site, so I can come back to it later. 
 
 
 #### Strategy Table
@@ -96,8 +98,8 @@ User registration | 5 | 5
 Create, edit and delete Authors | 5 | 4
 Create, edit and delete Reviews | 5 | 4
 Saving reviews and authors as drafts | 5 | 4
-Adding profile pictures for users | 3 | 2
-Commenting on other users content | 3 | 2
+Adding profile pictures for Users | 3 | 2
+Commenting on other User's content | 3 | 2
 Social Media registration | 3 | 2
 Ability to search for reviews | 3 | 2
 Have a community rating system for book entries | 2 | 2
@@ -106,7 +108,7 @@ Have a community rating system for book entries | 2 | 2
 
 ### Scope
 
-When reviewing the strategy table it is clear that not all features can be implemented in the first release of the project. In this case the project will be released in phases. The first phase will consist of features identified to build the minimul viable product.
+When reviewing the strategy table it is clear that not all features can be implemented in the first release of the project. In this case, the project will be released in phases. The first phase will consist of features identified to build the minimal viable product.
 
 **First Phase**
 
@@ -126,7 +128,7 @@ When reviewing the strategy table it is clear that not all features can be imple
 
 * Adding profile pictures for users
 
-* Social Media registration
+* Social media registration
 
 * Ability to search for reviews
 
@@ -144,7 +146,7 @@ GitHub projects was used as my project management tool to track user stories. Us
 
 ### Structure
 
-The website has a Hierarchial Tree Structure so that navigation through the site is effortless. Here is a sketch of the structure made using [miro](https://miro.com/).
+The website has a hierarchical tree structure so that navigation through the site is effortless. Here is a sketch of the structure made using [miro](https://miro.com/).
 
 ![BookWyrm website map](assets/readme_files/site_structure.png)
 
@@ -152,18 +154,18 @@ The website has a Hierarchial Tree Structure so that navigation through the site
 
 * Links and forms provide feedback to the Site User.
 
-* Once the User us logged in or registered they are given greater access to the site.
+* Once the User is logged in or registered they are given greater access to the site.
 
 * A custom 404 page has also been implemented.
 
 
 #### Database Model
 
-The databade model was designed using [drawsql](https://drawsql.app/). The type of database being used is a relational PostgreSQL database supplied by [Code Institute](https://dbs.ci-dbs.net/)
+The database model was designed using [drawsql](https://drawsql.app/). The type of database being used is a relational PostgreSQL database supplied by [Code Institute](https://dbs.ci-dbs.net/)
 
 ![BookWyrm database model](assets/readme_files/database_model.png)
 
-The database model was designed before the project with a larger scope in mind. For this MVP release I will discuss the models that have been implemented. The others will be added at a later phase.
+The database model was designed before the project with a larger scope in mind. For this MVP release, I will discuss the models that have been implemented. The others will be added at a later phase.
 
 **Book Model**
 
@@ -171,7 +173,7 @@ The database model was designed before the project with a larger scope in mind. 
 
 * Slug: Stores a unique slug to identify the review by.
 
-* Author: Stores the Author of the book being reviewed as a Author Foreign Key.
+* Author: Stores the Author of the book being reviewed as an Author Foreign Key.
 
 * Genre: Stores the genre of the book.
 
@@ -185,7 +187,7 @@ The database model was designed before the project with a larger scope in mind. 
 
 * Review_author: Stores the author of the review as a User Foreign Key.
 
-* Created_on: Date and time set when review is created
+* Created_on: Date and time set when the review is created
 
 **Author Model**
 
@@ -197,15 +199,15 @@ The database model was designed before the project with a larger scope in mind. 
 
 * Nationality: Stores author's nationality supplied by bio's author.
 
-* Genre: Stores the authors writting genre supplied by the bio's author.
+* Genre: Stores the author's writing genre supplied by the bio's author.
 
-* Favourite_book: Stores the author's favoutite book supplied by the bio's author.
+* Favourite_book: Stores the author's favorite book supplied by the bio's author.
 
-* Bio: Author bio details suppplied by the bio's author.
+* Bio: Author bio details supplied by the bio's author.
 
-* Status: Bio's author proved the status to determine wether to publish bio or save as a draft.
+* Status: The bio's author provided the status to determine whether to publish the bio or save it as a draft.
 
-Posted_by: Stores the author of the bio as a User Foreign Key.
+* Posted_by: Stores the author of the bio as a User Foreign Key.
 
 ### Skeleton
 
@@ -232,13 +234,13 @@ Add / Edit Comment | ![Desktop Add / Edit Comment](assets/wireframes/wireframe_l
 
 ![Color scheme image](assets/readme_files/color_scheme.png)
 
-The colors used in the website are a dark red (#8B0000) for the main background and white smoke (#F5F5F5) for the header background and body text. Gold (FFD700) was used for subtitles and Davy's Grey (#4A4A4F) for the brand and alert text. Dark moss green (#4B5320) was used for the content boxes whereas golden gate bridge (#E84610), tangelo(#FF4500), brandeis blue (0D6EFD) , teal (188181) and verdigris (23BBBB) were used to style numerous buttons and links thoughout the site.
+The colors used in the website are dark red (#8B0000) for the main background and white smoke (#F5F5F5) for the header background and body text. Gold (FFD700) was used for subtitles and Davy's Grey (#4A4A4F) for the brand and alert text. Dark moss green (#4B5320) was used for the content boxes whereas golden gate bridge (#E84610), tangelo(#FF4500), brandeis blue (0D6EFD), teal (188181) and verdigris (23BBBB) were used to style numerous buttons and links throughout the site.
 
-These colors were chosen because of their warmth and richness. They also match golds, greens and reds of dragons which suit the sites theme.
+These colors were chosen because of their warmth and richness. They also match the golds, greens and reds of dragons which suit the site's theme.
 
-#### Typograpy
+#### Typography
 
-The main font used in the site is Roboto, with a sans-serif fall back in case of import errors. The font used on the brand and titles throughout the website is Kaushan Script with a serif fall back incase if import errors.
+The main font used in the site is Roboto, with a sans-serif fallback in case of import errors. The font used on the brand and titles throughout the website is Kaushan Script with a serif fallback in case of import errors.
 
 The Kaushan Script was chosen because it suited the theme of the site and Roboto is a script that reads well for content.
 
@@ -269,7 +271,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Footer
     * ![Footer](assets/readme_files/footer.png)
 
-    * Footer displays the site creators username and some links to socials.
+    * Footer displays the site creator's username and some links to socials.
 
 
 ### Home Page
@@ -287,7 +289,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 
     * Provides a button below each to take the User to the author or review.
 
-    * For un-registered Users buttons display to encourage you to login or sign up in both the welcome field and at the bottom of the page.
+    * For unregistered Users buttons display to encourage you to log in or sign-up in both the welcome field and at the bottom of the page.
 
     * For registered Users buttons replace the login or sign up prompts encouraging you to explore reviews and authors in the welcome field and at the bottom of the page to add a review.
 
@@ -355,7 +357,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 
     * Displays a responsive instance of the Author Model for the User to view.
 
-    * Logged in Users who created the instance canedit or delete it via two buttons in the masthead.
+    * Logged in Users who created the instance can edit or delete it via two buttons in the masthead.
 
     * The review itself is delivered in a rich text format.
 
@@ -369,7 +371,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
     * Mobile:
     ![Add Review Page Mobile](assets/readme_files/add_new_review_mobile.png)
 
-    * Renders a responsive form for the logged in User to add their own review to the site.
+    * Renders a responsive form for the logged in User to add their review to the site.
 
 ### Edit Review Page
 
@@ -390,7 +392,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
     * Prompt:
     ![Review Delete Prompt](assets/readme_files/review_delete_prompt.png)
 
-    * Calls a JavaScript function which displays a confirmation prompt before deletion.
+    * Calls a JavaScript function that displays a confirmation prompt before deletion.
 
     * Prevents accidental deletion and improves User
     experience.
@@ -405,7 +407,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
     * Mobile:
     ![Add Author Page Mobile](assets/readme_files/add_author_page_mobile.png)
 
-    * Renders a responsive form for the logged in User to add their own author bio to the site.
+    * Renders a responsive form for the logged in User to add their author bio to the site.
 
 ### Edit Author Page
 
@@ -426,7 +428,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
     * Prompt:
     ![Delete Author Prompt](assets/readme_files/author_delete_prompt.png)
 
-    * Calls a JavaScript function which displays a confirmation prompt before deletion.
+    * Calls a JavaScript function that displays a confirmation prompt before deletion.
 
     * Prevents accidental deletion and improves User
     experience.
@@ -435,8 +437,8 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 
 Page | Purpose | Image
 --- | --- | ---
-Login | Allows registered User to login to account on site. | ![Login Page](assets/readme_files/login_page.png) 
-Sign Up | Allows un-registered Users to create an account on the site. | ![Sign Up Page](assets/readme_files/sign_up_page.png)
+Login | Allows registered Users to log in to their account on the site. | ![Login Page](assets/readme_files/login_page.png) 
+Sign Up | Allows unregistered Users to create an account on the site. | ![Sign Up Page](assets/readme_files/sign_up_page.png)
 Logout | Allows registered Users to log out of their accounts. | ![Loggout Page](assets/readme_files/sign_out_page.png)
 
 ### 404 Page
@@ -452,7 +454,7 @@ Logout | Allows registered Users to log out of their accounts. | ![Loggout Page]
 
 ### Base Template Messages
 
-* The base.html file, from which all templates inherit from, contains a place for messages. These messages are success and error messages depending on the action that a user is trying to perform. See some examples in the table below.
+* The base.html file, from which all templates inherit, contains a place for messages. These messages are success and error messages depending on the action that a user is trying to perform. See some examples in the table below.
 
 Action | Resulting Message
 --- | ---
@@ -466,7 +468,7 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
 
 * The error messages inform unauthorised users why they have been diverted away from the content they were trying to reach.
 
-* These messages are both informing and improve the experience of the User.
+* These messages both inform and improve the experience of the User.
 
 [Back to top ⇧](#bookwyrm)
 
@@ -483,7 +485,7 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
 ### Libraries and Frameworks
 
 * [Django](https://www.djangoproject.com/)   
-    * Django was used as web framework.
+    * Django was used as a web framework.
 
 * [Django Template](https://jinja.palletsprojects.com)  
     * Django Template was used as a templating language for Django to display backend data to HTML.
@@ -492,7 +494,7 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
     * Bootstrap 5 was used throughout the website to help with styling and responsiveness.
 
 * [Google Fonts](https://fonts.google.com)  
-    * Google fonts was used to import the fonts into the html file, and were used on all parts of the site.
+    * Google fonts was used to import the fonts into the HTML file, and were used on all parts of the site.
 
 * [Font Awesome](https://fontawesome.com)  
     * Font Awesome was used throughout the website to add icons for aesthetic and UX purposes. 
@@ -507,7 +509,7 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
     * Django Crispy Form was used to control the rendering of the forms. 
  
 * [Gunicorn](https://gunicorn.org/)  
-    * Gunicorn was used as Python WSGI HTTP Server for UNIX to support the deployment of Django application.  
+    * Gunicorn was used as a Python WSGI HTTP Server for UNIX to support the deployment of the Django application.  
 
 * [Summernote](https://summernote.org/) 
     * Summernote has been used to provide rich text content to the admin and User.
@@ -532,7 +534,7 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
      * GitPod Enterprise was used for writing code, committing, and then pushing to GitHub.
 
 * [GitHub](https://github.com)  
-   GitHub was used to store the projects code after being pushed from Git. 
+   GitHub was used to store the project's code after being pushed from Git. 
 
 * [Heroku](https://www.heroku.com)   
     * Heroku was used to deploy the website.
@@ -547,7 +549,7 @@ Unauthorised Viewing of Draft | ![Draft Access Denied](assets/readme_files/unaut
      * Balsamiq was used to create the wireframes during the design phase of the project
 
 * [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
-    * Chrome DevTools was used during development process for code review and to test responsiveness.
+    * Chrome DevTools was used during the development process for code review and to test responsiveness.
 
 * [W3C Markup Validator](https://validator.w3.org/)
     * W3C Markup Validator was used to validate the HTML code.
@@ -582,7 +584,7 @@ All testing documentation can be found [here](https://github.com/SnappyJumper/Bo
 
 ## Deployment
 
-This project was developed using a [GitPod](https://gitpod.io/) Enterprise workspace. The code was commited to [Git](https://git-scm.com/) and pushed to [GitHub](https://github.com/") using terminal commands.
+This project was developed using a [GitPod](https://gitpod.io/) Enterprise workspace. The code was committed to [Git](https://git-scm.com/) and pushed to [GitHub](https://github.com/") using terminal commands.
 
 ## Deploying on Heroku
 To deploy this project to Heroku from its GitHub repository, the following guidelines were followed:
@@ -605,7 +607,7 @@ To deploy this project to Heroku from its GitHub repository, the following guide
     SECRET_KEY | "Your Django Projects Secret key value"
  
 4. Prepare the environment and settings.py file:
-    - In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
+    - In the Settings tab, click on Reveal Config Vars and copy the URL next to DATABASE_URL.
     - In your GitPod workspace, create an env.py file in the main directory. 
     - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
     - Add the SECRET_KEY value to the Config Vars in Heroku.
@@ -624,8 +626,8 @@ To deploy this project to Heroku from its GitHub repository, the following guide
     - Type python3 manage.py collectstatic into the terminal.
     - Create a "Procfile" in the main directory and add the following line:
         - web: gunicorn bookwyrm.wsgi
-    - Go to the deploy tab and connect heroku to your projects GitHub repository.
-    - Click on deploy branch and wait until the build is complete. Once complete the app can then be accesed via the view button.
+    - Go to the deploy tab and connect Heroku to your project's GitHub repository.
+    - Click on the deploy branch and wait until the build is complete. Once complete the app can then be accessed via the view button.
 
 [Back to top ⇧](#bookwyrm)
 
@@ -679,9 +681,9 @@ Page | Desktop | Mobile |
 
 ### Code
 
-* [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/) were consulted throughout the length of this project for inspiration and help understanding the code.
+* [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/) were consulted throughout the length of this project for inspiration and help in understanding the code.
 
-* [Code Institute](https://codeinstitute.net/)'s "I think therefore I blog" project for basic structure when implementing the python code initially.
+* [Code Institute](https://codeinstitute.net/)'s "I think therefore I blog" project for basic structure when implementing the Python code initially.
 
 [Back to top ⇧](#bookwyrm)
 
@@ -689,20 +691,20 @@ Page | Desktop | Mobile |
 
 * A known issue with Summernote field validation is present in the project. 
 
-* There is a warning in the css validation:
+* There is a warning in the CSS validation:
     * ![CSS Warning](assets/testing_files/validation/css_warnings.png)
 
-    * The warning is for a package I dont have access to as they are never used in my Styles sheet.
+    * The warning is for a package I don't have access to as they are never used in my Styles sheet.
 
 [Back to top ⇧](#bookwyrm)
 
-## Acknowledgements
+## Acknowledgments
 
-* My partner, for her unconditional love and steady supply of tea and bacon sandwiches whilst writting this readme file.
+* My partner, for her unconditional love and a steady supply of tea and bacon sandwiches whilst writing this readme file.
 
 * My family and friends, for their continued love and support.
 
-* My mentor, Marcel, for his invaluable support and feed back throughout this course, answering Slack messages at the craziest times of day so I dont have a breakdown, I would be lost without him.
+* My mentor, Marcel, for his invaluable support and feedback throughout this course, answering Slack messages at the craziest times of the day so I don't have a breakdown, I would be lost without him.
 
 * To Code Institute and its amazing Slack community, giving me the tools to change my career and improve my quality of life.
 
