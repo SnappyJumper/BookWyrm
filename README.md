@@ -716,11 +716,6 @@ Page | Desktop | Mobile |
 
 * A known issue with Summernote field validation is present in the project. 
 
-* There is a warning in the CSS validation:
-    * ![CSS Warning](assets/testing_files/validation/css/css_warnings.png)
-
-    * The warning is for a package I don't have access to as they are never used in my Styles sheet.
-
 [Back to top ⇧](#bookwyrm)
 
 ## Acknowledgments
