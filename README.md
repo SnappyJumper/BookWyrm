@@ -257,9 +257,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 
 * Navigation Bar:
     * Desktop:
+
     ![Nav Bar Desktop](assets/readme_files/nav_bar_desktop.png)
 
     * Mobile:
+
     ![Nav Bar Mobile](assets/readme_files/nav_bar_mobile.png)
 
     * Contains the site brand.
@@ -279,9 +281,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Featured Reviews and Authors List
 
     * Desktop:
+
     ![Home Desktop](assets/readme_files/home_page_desktop.png)
 
     * Mobile:
+
     ![Home Mobile 1](assets/readme_files/home_page_mobile_1.png)
     ![Home Mobile 2](assets/readme_files/home_page_mobile_2.png)
 
@@ -298,9 +302,12 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Reviews List:
 
     * Desktop:
+
     ![Reviews List Desktop](assets/readme_files/reviews_page_desktop.png)
 
+
     * Mobile:
+
     ![Reviews List Mobile](assets/readme_files/reviews_page_mobile.png)
 
     * Displays a paginated, responsive list of all the reviews and some relative info to engage the User.
@@ -316,9 +323,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Authors List:
 
     * Desktop:
+
     ![Authors Page Desktop](assets/readme_files/authors_page_desktop.png)
 
     * Mobile:
+
     ![Authors Page Mobile](assets/readme_files/authors_page_mobile.png)
 
     * Displays a paginated, responsive list of all the authors and some relative info to engage the User.
@@ -334,9 +343,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Book Instance:
 
     * Desktop:
+
     ![Book Review Page Desktop](assets/readme_files/book_review_page_desktop.png)
 
     * Mobile:
+
     ![Book Review Page Mobile](assets/readme_files/book_review_page_mobile.png)
 
     * Displays a responsive instance of the Book Model for the User to view.
@@ -350,9 +361,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Author Instance:
 
     * Desktop:
+
     ![Author Bio Page Desktop](assets/readme_files/author_bio_page_desktop.png)
 
     * Mobile:
+
     ![Author Bio Page Mobile](assets/readme_files/author_bio_page_mobile.png)
 
     * Displays a responsive instance of the Author Model for the User to view.
@@ -366,9 +379,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Add Review Form:
 
     * Desktop:
+
     ![Add Review Page Desktop](assets/readme_files/add_new_review_desktop.png)
 
     * Mobile:
+
     ![Add Review Page Mobile](assets/readme_files/add_new_review_mobile.png)
 
     * Renders a responsive form for the logged in User to add their review to the site.
@@ -378,9 +393,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Edit Review Form:
 
     * Desktop:
+
     ![Edit Review Form Desktop](assets/readme_files/edit_review_form_desktop.png)
 
     * Mobile:
+
     ![Edit Review Form Mobile](assets/readme_files/edit_review_form_mobile.png)
 
     * Renders a responsive form for the logged in and authenticated User. It is pre-filled with the content being edited.
@@ -390,6 +407,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Delete Prompt:
 
     * Prompt:
+
     ![Review Delete Prompt](assets/readme_files/review_delete_prompt.png)
 
     * Calls a JavaScript function that displays a confirmation prompt before deletion.
@@ -402,9 +420,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Add Author Form:
 
     * Desktop:
+
     ![Add Author Page Desktop](assets/readme_files/add_author_page_desktop.png)
 
     * Mobile:
+
     ![Add Author Page Mobile](assets/readme_files/add_author_page_mobile.png)
 
     * Renders a responsive form for the logged in User to add their author bio to the site.
@@ -414,9 +434,11 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Edit Author Form
 
     * Desktop:
+
     ![Edit Author Page Desktop](assets/readme_files/edit_author_page_desktop.png)
 
     * Mobile:
+
     ![Edit Author Page Mobile](assets/readme_files/edit_author_page_mobile.png)
 
     * Renders a responsive form for the logged in and authenticated User. It is pre-filled with the content being edited.
@@ -426,6 +448,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Delete Prompt:
 
     * Prompt:
+    
     ![Delete Author Prompt](assets/readme_files/author_delete_prompt.png)
 
     * Calls a JavaScript function that displays a confirmation prompt before deletion.
