@@ -111,29 +111,84 @@ The missing user stories were not set for completion in the first phase release 
 The [W3C Markup Validator](https://validator.w3.org/) service was used to validate the HTML code of the project.
 
 You'll find the validations for each page in the table below:
-Page | Initial Validation | After Corrections(If applicable)
+Page | Initial Validation | After Corrections (If applicable)
 --- | --- | ---
-Home | ![Home Page Validation](assets/testing_files/validation/html/validator_index_page.png) | N/A
-Reviews | ![Reviews Page Validation](assets/testing_files/validation/html/validator_reviews_page.png) | N/A
-Authors | ![Authors Page Validation](assets/testing_files/validation/html/validator_authors_page.png) | N/A
-Review | ![Review Page Validation](assets/testing_files/validation/html/validator_book_review_page_before.png) | ![Second Review Page Validation](assets/testing_files/validation/html/validator_book_review_page_after.png)
-Author Bio | ![Author Bio Page Validation](assets/testing_files/validation/html/validator_author_bio_page_before.png) | ![Second Author Bio Page Validation](assets/testing_files/validation/html/validator_author_bio_page_after.png)
-Add Review | ![Add Review Page Validation part 1](assets/testing_files/validation/html/validator_new_review_page_part_1.png) ![Add Review Page Validation part 2](assets/testing_files/validation/html/validator_new_review_page_part_2.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
-Add Author | ![Add Author Page Validation part 1](assets/testing_files/validation/html/validator_new_author_page_part_1.png) ![Add Author Page Validation part 2](assets/testing_files/validation/html/validator_new_author_page_part_2.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
-Edit Review | ![Edit Review Page Validation part 1](assets/testing_files/validation/html/validator_edit_review_page_part_1.png) ![Edit Review Page Validation part 2](assets/testing_files/validation/html/validator_edit_review_page_part_2.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
-Edit Author | ![Edit Author Page Validation part 1](assets/testing_files/validation/html/validator_edit_author_page_before_part_1.png) ![Edit Author Page Validation part 2](assets/testing_files/validation/html/validator_edit_author_page_before_part_1.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
-Signup | ![Signup Page Validation](assets/testing_files/validation/html/validator_signup_page_before.png) | ![Second Signup Page Validation](assets/testing_files/validation/html/validator_signup_page_after.png)
-Login | ![Login Page Validation](assets/testing_files/validation/html/validator_login_page.png) | N/A
-Sign Out | ![Sign Out Page Validation](assets/testing_files/validation/html/validator_logout_page.png) | N/A
-Custom 404 | ![Custom 404 Page Validation](assets/testing_files/validation/html/validator_404_page_before.png) | ![Second Custom 404 Page Validation](assets/testing_files/validation/html/validator_404_page_after.png)
+Home | ![Home Page Validation](assets/testing_files/validation/html/markup_validation/validator_index_page.png) | N/A
+Reviews | ![Reviews Page Validation](assets/testing_files/validation/html/markup_validation/validator_reviews_page.png) | N/A
+Authors | ![Authors Page Validation](assets/testing_files/validation/html/markup_validation/validator_authors_page.png) | N/A
+Review | ![Review Page Validation](assets/testing_files/validation/html/markup_validation/validator_book_review_page_before.png) | ![Second Review Page Validation](assets/testing_files/validation/html/markup_validation/validator_book_review_page_after.png)
+Author Bio | ![Author Bio Page Validation](assets/testing_files/validation/html/markup_validation/validator_author_bio_page_before.png) | ![Second Author Bio Page Validation](assets/testing_files/validation/html/markup_validation/validator_author_bio_page_after.png)
+Add Review | ![Add Review Page Validation part 1](assets/testing_files/validation/html/markup_validation/validator_new_review_page_part_1.png) ![Add Review Page Validation part 2](assets/testing_files/validation/html/markup_validation/validator_new_review_page_part_2.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
+Add Author | ![Add Author Page Validation part 1](assets/testing_files/validation/html/markup_validation/validator_new_author_page_part_1.png) ![Add Author Page Validation part 2](assets/testing_files/validation/html/markup_validation/validator_new_author_page_part_2.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
+Edit Review | ![Edit Review Page Validation part 1](assets/testing_files/validation/html/markup_validation/validator_edit_review_page_part_1.png) ![Edit Review Page Validation part 2](assets/testing_files/validation/html/markup_validation/validator_edit_review_page_part_2.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
+Edit Author | ![Edit Author Page Validation part 1](assets/testing_files/validation/html/markup_validation/validator_edit_author_page_before_part_1.png) ![Edit Author Page Validation part 2](assets/testing_files/validation/html/markup_validation/validator_edit_author_page_before_part_2.png) | Corrections were not required as these validation errors are with the summernote package and I cannot access them to change them.
+Signup | ![Signup Page Validation](assets/testing_files/validation/html/markup_validation/validator_signup_page_before.png) | ![Second Signup Page Validation](assets/testing_files/validation/html/markup_validation/validator_signup_page_after.png)
+Login | ![Login Page Validation](assets/testing_files/validation/html/markup_validation/validator_login_page.png) | N/A
+Sign Out | ![Sign Out Page Validation](assets/testing_files/validation/html/markup_validation/validator_logout_page.png) | N/A
+Custom 404 | ![Custom 404 Page Validation](assets/testing_files/validation/html/markup_validation/validator_404_page_before.png) | ![Second Custom 404 Page Validation](assets/testing_files/validation/html/markup_validation/validator_404_page_after.png)
 
 
 ### CSS
 
 The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the css in my Styles.css sheet.
 
-My CSS passed the validator check
+My CSS passed the validator check with no warnings
 ![CSS Validator](assets/testing_files/validation/css/validator_css.png)
+
+### Python
+
+Pylint was used continuously during the project to help detect syntax errors in the project. 
+![Pylint Validation](assets/testing_files/validation/python/validator_pylint_before.png)
+
+[CI Python Linter](https://pep8ci.herokuapp.com/) was then used to ensure Python code was fully validated. The results of the validation can be seen in the table below.
+
+File | Initial Validation | After Corrections (if applicable)
+--- | --- | ---
+asig | ![asig Validation](assets/testing_files/validation/python/validator_ci_asig.png) | N/A
+settings | ![settings Validation](assets/testing_files/validation/python/validator_ci_settings.png) | N/A
+urls (project level) | ![urls (project level) Validation](assets/testing_files/validation/python/validator_ci_urls(project_level)_before.png) | ![Second urls (project level) Validation](assets/testing_files/validation/python/validator_ci_urls(project_level)_after.png)
+wsgi | ![wsgi Validation](assets/testing_files/validation/python/validator_ci_wsig.png) | N/A
+0001_initial | ![0001_initial Validation](assets/testing_files/validation/python/validator_ci_0001_initial.png) | N/A
+0002_author_status | ![0002_author_status Validation](assets/testing_files/validation/python/validator_ci_0002_authot_status.png) | N/A
+admin | ![admin Validation](assets/testing_files/validation/python/validator_ci_admin_before.png) | ![Second admin Validation](assets/testing_files/validation/python/validator_ci_admin_after.png)
+apps | ![apps Validation](assets/testing_files/validation/python/validator_ci_apps.png) | N/A
+forms | ![forms Validation](assets/testing_files/validation/python/validator_ci_forms_before.png) | ![Second forms Validation](assets/testing_files/validation/python/validator_ci_forms_after.png)
+models | ![models Validation](assets/testing_files/validation/python/validator_ci_models_before.png) | ![Second models Validation](assets/testing_files/validation/python/validator_ci__model_after.png)
+urls (app level) | ![urls (app level) Validation](assets/testing_files/validation/python/validator_ci_urls(app_level)_before.png) | ![Second urls (app level) Validation](assets/testing_files/validation/python/validator_ci_urls(app_level)_after.png)
+views | ![views Validation](assets/testing_files/validation/python/validator_ci_views_before.png) | ![Second views Validation](assets/testing_files/validation/python/validator_ci_views_after.png)
+
+
+### JavaScript
+
+[JSHints JavaScript Code Quality Tool](https://jshint.com/) was used to validate the projects JavaScript code.
+
+A small syntax error was found and deleted.
+![JavaScript Validation](assets/testing_files/validation/javascript/validator_script_before.png)
+![Second JavaScript Validation](assets/testing_files/validation/javascript/validator_script_after.png)
+
+
+## Accessibility
+
+Lighthouse in [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to confirm that colors and fonts used throughout the site were readable and User friendly to all. Results can be seen in the report below.
+
+### Lighthouse Reports
+
+Page | Report |
+| --- | --- |
+| Home | ![Home Lighhouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_index_page.png) |
+| Reviews | ![Reviews Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_reviews_page.png) |
+| Authors | ![Authors Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_authors_page.png) |
+| Review | ![Review Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_book_review_page.png) |
+| Author Bio | ![Author Bio Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_author_bio_page.png) |
+| Add Review | ![Add Review Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_new_review_page.png) |
+| Add Author | ![Add Author Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_new_author_page.png) |
+| Edit Review | ![Edit Review Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_edit_review_page.png) |
+| Edit Author | ![Edit Author Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_edit_authors_page.png) |
+| Signup | ![Signup Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_signup_page.png) |
+| Login | ![Login Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_login_page.png) |
+| Sign Out | ![Sign Out Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_logout_page.png) |
+| Custom 404 | ![Custon 404 Lighthouse Report](assets/testing_files/validation/html/lighthouse/lighthouse_404_page.png) |
+
 
 
 
