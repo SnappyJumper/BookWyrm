@@ -271,7 +271,9 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
     * Collapses into a burger bar button when viewed on smaller devices.
 
 * Footer
-    * ![Footer](assets/readme_files/footer.png)
+    * 
+    
+    ![Footer](assets/readme_files/footer.png)
 
     * Footer displays the site creator's username and some links to socials.
 
@@ -448,7 +450,7 @@ The Kaushan Script was chosen because it suited the theme of the site and Roboto
 * Delete Prompt:
 
     * Prompt:
-    
+
     ![Delete Author Prompt](assets/readme_files/author_delete_prompt.png)
 
     * Calls a JavaScript function that displays a confirmation prompt before deletion.
