@@ -132,6 +132,13 @@ Custom 404 | ![Custom 404 Page Validation](assets/testing_files/validation/html/
 
 The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the css in my Styles.css sheet.
 
+My CSS passed the validator check
+![CSS Validator](assets/testing_files/validation/css/validator_css.png)
+
+
+
+
+
 
 
 
