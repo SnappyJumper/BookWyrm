@@ -22,18 +22,18 @@ View the deployed site [here](https://bookwyrm-f93c738e909e.herokuapp.com/)
 
 The missing user stories were not set for completion in the first phase release of the project.
 
-### 1. As a logged in Site User I can create a Book Review so that I can share it with other Site Users
+### 1. As a logged in Site User, I can create a Book Review so that I can share it with other Site Users
 
-* A login feature was provided so Users can login to their own profiles.
+* A login feature was provided so Users can login to their profiles.
 
-* Once logged in a User has access to the Add Review Form and can create their own review.
+* Once logged in a User has access to the Add Review Form and can create their review.
 
 * The User can then share their review on the site by saving it as published.
 
 * The User can also save their review as a draft to return to later before publishing.
 
 
-### 2. As a Site User I can edit my pre-existing Book Reviews so that I can improve its quality post publishing
+### 2. As a Site User, I can edit my pre-existing Book Reviews so that I can improve its quality post publishing
 
 * Once the User has published a review they can return any time to edit it.
 
@@ -43,7 +43,7 @@ The missing user stories were not set for completion in the first phase release 
 
 * Only a logged in User who owns the review can edit it.
 
-### 3. As a Site User I can delete my published reviews which will lead to a more positive user experience.
+### 3. As a Site User, I can delete my published reviews which will lead to a more positive user experience.
 
 * Once a review has been published the User can return at any time to delete it.
 
@@ -51,13 +51,13 @@ The missing user stories were not set for completion in the first phase release 
 
 * When the authorised User decides to click delete they are prompted by the site to get confirmation before deletion.
 
-### 4. As a logged in Site User I can create a Bio for a book Author which I can share with other Site Users
+### 4. As a logged in Site User, I can create a Bio for a book Author which I can share with other Site Users
 
 * When a User has completed registration or logged in they can access the Add Author Form and create their own author bio.
 
 * The User can then share their author bio on the site or save it as a draft before publishing.
 
-### 5. As a Site User I can edit my published Author Pages so I can improve their quality post-publishing.
+### 5. As a Site User, I can edit my published Author Pages so I can improve their quality post-publishing.
 
 * Once the User has published an author bio they can return at any time to edit it.
 
@@ -67,27 +67,27 @@ The missing user stories were not set for completion in the first phase release 
 
 * Only a logged in User who owns the author bio can edit it.
 
-### 6. As a site User I can delete my published Author Pages which will lead to a more positive user experience
+### 6. As a site User, I can delete my published Author Pages which will lead to a more positive user experience
 
 * Once an author bio has been published te User can return at any time to delete it.
 
-* Only the User who created te author bio can choose to delete it.
+* Only the User who created the author bio can choose to delete it.
 
 * When the authorised User decides to click on delete they are prompted by the site to get confirmation before deletion.
 
-### 13. As a registered User I would like to be able to log in and out as I please which would improve my user experience.
+### 13. As a registered User, I would like to be able to log in and out as I please which would improve my user experience.
 
 * A registered User can log in to the site by selecting the option in the navigation bar.
 
 * Here the registered User can enter their account information to access their account.
 
-* Once logged in the options in the navigation bar cange and the User can access the log out option.
+* Once logged in the options in the navigation bar change and the User can access the logout option.
 
 * Here they are prompted by the page to confirm they wish to logout by pressing a sign out button.
 
 * Once pressed the User is signed out again.
 
-### 14. As a logged in User I would like to see that I am logged in and be able to perform additional functions as a logged in User, this would improve my user experience and my interactions with the site.
+### 14. As a logged in User, I would like to see that I am logged in and be able to perform additional functions as a logged in User, this would improve my user experience and my interactions with the site.
 
 * Once the User is logged in they are redirected to the home page where a sign in confirmation displays at the top of the page.
 
@@ -95,7 +95,7 @@ The missing user stories were not set for completion in the first phase release 
 
 * Once logged in the User has access to create, edit and delete their own reviews and author bios.
 
-### 15. As a User I wouls like to be given the opportunity to register to the site , so that I can begin creating my own content and interact with the site more.
+### 15. As a User, I would like to be given the opportunity to register to the site, so that I can begin creating my own content and interact with the site more.
 
 * An unregistered User can see an option within the navigation bar which allows them to access the sign up page.
 
@@ -160,7 +160,7 @@ views | ![views Validation](assets/testing_files/validation/python/validator_ci_
 
 ### JavaScript
 
-[JSHints JavaScript Code Quality Tool](https://jshint.com/) was used to validate the projects JavaScript code.
+[JSHints JavaScript Code Quality Tool](https://jshint.com/) was used to validate the project's JavaScript code.
 
 A small syntax error was found and deleted.
 ![JavaScript Validation](assets/testing_files/validation/javascript/validator_script_before.png)
